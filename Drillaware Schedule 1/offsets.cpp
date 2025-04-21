@@ -1,0 +1,13 @@
+#pragma once
+#include "includes.h"
+
+// Offsets namespace for memory-related variables
+namespace offsets {
+    uintptr_t base = (uintptr_t)GetModuleHandle(NULL);
+    uintptr_t GameAssembly = (uintptr_t)GetModuleHandle("GameAssembly.dll");
+
+    namespace localplayer {
+        uintptr_t CanTakeDamage = 0x6BE170; // ScheduleOne_PlayerScripts_Health_PlayerHealth$$get_CanTakeDamage proc near
+        uintptr_t TakeDamage = 0x6BD560; // ScheduleOne_PlayerScripts_Health_PlayerHealth$$RpcWriter___Observers_TakeDamage_3505310624 proc near
+    }
+}

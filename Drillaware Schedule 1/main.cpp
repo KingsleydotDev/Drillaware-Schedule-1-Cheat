@@ -1,6 +1,5 @@
 #include "includes.h"
 #include "iostream"
-
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 Present oPresent;
@@ -26,9 +25,46 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 	return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 }
-uintptr_t moduleBase = (uintptr_t)GetModuleHandle("GameAssembly.dll");
+
 bool show = false;
 bool init = false;
+
+
+
+void RenderMenu()
+{
+	ImGui::SetNextWindowSize(ImVec2(550, 400), ImGuiCond_Always);
+	ImGui::Begin("Drillaware Schedule 1 Cheat by KingsleydotDev");
+	{
+		if (ImGui::BeginTabBar("MainTabBar")) {
+			if (ImGui::BeginTabItem("Player")) {
+				if (ImGui::Checkbox("Godmode", &variables::godMode))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage), &hooks::hkCanTakeDamage, (LPVOID*)&hooks::oCanTakeDamage);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage), &hooks::hkTakeDamage, (LPVOID*)&hooks::oTakeDamage);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
+				}
+				else
+				{
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
+				}
+				ImGui::EndTabItem();
+			}
+
+			if (ImGui::BeginTabItem("World")) {
+				ImGui::Text("World tab content goes here.");
+				ImGui::EndTabItem();
+			}
+
+			ImGui::EndTabBar();
+		}
+	}
+	ImGui::End();
+
+}
+
 HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 {
 	if (!init)
@@ -68,8 +104,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 		ImGui_ImplWin32_NewFrame();
 		ImGui::NewFrame();
 
-		ImGui::Begin("Drillaware Schedule 1 Cheat by KingsleydotDev");
-		ImGui::End();
+		RenderMenu();
 
 		ImGui::Render();
 
@@ -92,7 +127,7 @@ DWORD WINAPI MainThread(LPVOID lpReserved)
 			FILE * f;
 			freopen_s(&f, "CONOUT$", "w", stdout);
 			std::cout << "Whats up fam this is the debug console" << std::endl;
-			std::cout <<"GameAssembly.dll Module Base: " << std::hex << moduleBase << std::endl;
+			std::cout <<"GameAssembly.dll Module Base: " << std::hex << offsets::base << std::endl;
 
 		}
 	} while (!init_hook);
