@@ -37,6 +37,23 @@ void RenderMenu()
 	ImGui::Begin("Drillaware Schedule 1 Cheat by KingsleydotDev");
 	{
 		if (ImGui::BeginTabBar("MainTabBar")) {
+			if (ImGui::BeginTabItem("QoL")) {
+				ImGui::Text("Quality Of Life Mods.");
+				if (ImGui::Checkbox("Better Trash Grabber", &variables::betterTrashGrabber))
+				{
+					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 10, 200);
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity), &hooks::hkGetCapacity, (LPVOID*)&hooks::oGetCapacity);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
+				}
+				if (variables::betterTrashGrabber)
+					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 10, 200);
+				else
+				{
+
+				}
+				ImGui::EndTabItem();
+			}
+
 			if (ImGui::BeginTabItem("Player")) {
 				if (ImGui::Checkbox("Godmode", &variables::godMode))
 				{

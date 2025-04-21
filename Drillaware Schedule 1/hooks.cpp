@@ -1,6 +1,21 @@
-#include "hooks.h"
+#include "includes.h"
 
 namespace hooks {
+    // QoL
+
+    // Initialize the original function pointer to nullptr
+    tGetCapacity oGetCapacity = nullptr;
+
+    // The hook function - returns the amount you can pick up
+    int __fastcall hkGetCapacity(void* __this) {
+        // returns max amount capcity for trash grabber
+        return variables::iTrashGrabberCapacityAmount;
+    }
+
+
+
+
+    // Player
     // Initialize the original function pointer to nullptr
     tCanTakeDamage oCanTakeDamage = nullptr;
 
