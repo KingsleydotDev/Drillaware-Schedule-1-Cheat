@@ -21,6 +21,8 @@ namespace offsets {
         extern uintptr_t CameraGetFieldOfView; // UnityEngine_Camera$$get_fieldOfView proc near
         // offset for imtem stack size
         extern uintptr_t GetStackLimit;// ScheduleOne_ItemFramework_ItemInstance$$get_StackLimit proc near
+        // offset for SetStamina
+        extern uintptr_t SetStamina; //ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
     }
     namespace equippable {
         // QoL

@@ -25,7 +25,6 @@ namespace hooks {
     // Hooked version of CanTakeDamage — always returns false (godmode)
     bool __fastcall hkCanTakeDamage(void* __this);
 
-
     // TakeDamag
     // Typedef for the original TakeDamage function
     typedef void(__fastcall* tTakeDamage)(void* __this, void* damageInfo);
@@ -55,6 +54,17 @@ namespace hooks {
 
     // Hook function declaration
     int __fastcall hkGetStackLimit(void* __this);
+
+    // Unlimited stamina
+    // Type definition for SetStamina
+    typedef void(__fastcall* tSetStamina)(void* __this, float stamina);
+    // Pointer to original function
+    extern tSetStamina oSetStamina;
+    // Our hook function
+    void __fastcall hkSetStamina(void* __this, float stamina);
+
+
+
 
 
 }

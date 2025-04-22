@@ -87,6 +87,15 @@ void RenderMenu()
 				{
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
 				}
+				if (ImGui::Checkbox("Unlimited Sprint", &variables::bUnlimitedSprint))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina), &hooks::hkSetStamina, (LPVOID*)&hooks::oSetStamina);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
+				}
+				else
+				{
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
+				}
 				ImGui::EndTabItem();
 			}
 

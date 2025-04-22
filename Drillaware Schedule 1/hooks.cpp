@@ -33,6 +33,13 @@ namespace hooks {
         // No call to the original function, meaning damage is ignored
     }
 
+    // unlimited Stamina
+       // Definition of the original SetStamina function pointer
+    tSetStamina oSetStamina = nullptr;
+
+    void __fastcall hkSetStamina(void* __this, float stamina) {
+        // Unlimited stamina: do nothing
+    }
 
     // hooked version of GetFieldOfView
     // Define the original function pointer
