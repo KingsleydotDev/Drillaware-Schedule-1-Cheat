@@ -10,4 +10,5 @@ namespace variables
 
 	// Player
 	bool bGodMode = false;
+	bool bMaxStack = false;
 }

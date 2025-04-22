@@ -47,5 +47,14 @@ namespace hooks {
     // Hook function declaration
     float __fastcall hkGetFieldOfView(void* __this);
 
+    // GetStackLimit
+    typedef float(__fastcall* tGetStackLimit)(void* __this);
+
+    // Declare the original function pointer
+    extern tGetStackLimit oGetStackLimit;
+
+    // Hook function declaration
+    int __fastcall hkGetStackLimit(void* __this);
+
 
 }

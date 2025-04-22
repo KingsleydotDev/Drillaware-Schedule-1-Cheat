@@ -78,6 +78,15 @@ void RenderMenu()
 				{
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
 				}
+				if (ImGui::Checkbox("Increase Stack Size", &variables::bMaxStack))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit), &hooks::hkGetStackLimit, (LPVOID*)&hooks::oGetStackLimit);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
+				}
+				else
+				{
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
+				}
 				ImGui::EndTabItem();
 			}
 

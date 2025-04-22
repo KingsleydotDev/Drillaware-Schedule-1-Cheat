@@ -42,4 +42,14 @@ namespace hooks {
     float __fastcall hkGetFieldOfView(void* __this) {
         return variables::fFieldOfView;
     }
+
+    // hooked version ofItem instance get stack limit
+    // Define the original function pointer
+    tGetStackLimit oGetStackLimit = nullptr;
+
+    // Hook function
+    int __fastcall hkGetStackLimit(void* __this) {
+        return 9999;
+    }
+
 }

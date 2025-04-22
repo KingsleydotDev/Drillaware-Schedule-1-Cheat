@@ -11,4 +11,5 @@ namespace variables
 
 	// Player
 	extern bool bGodMode;
+	extern bool bMaxStack;
 }
