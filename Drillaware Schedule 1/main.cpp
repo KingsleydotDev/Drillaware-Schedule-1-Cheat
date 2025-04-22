@@ -40,97 +40,108 @@ void RenderMenu()
 			if (ImGui::BeginTabItem("QoL")) {
 				ImGui::Text("Quality Of Life Mods.");
 				if (ImGui::Checkbox("Better Trash Grabber", &variables::bBetterTrashGrabber))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity), &hooks::hkGetCapacity, (LPVOID*)&hooks::oGetCapacity);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
-				}
-				if (variables::bBetterTrashGrabber)
+					if (variables::bBetterTrashGrabber)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity), &hooks::hkGetCapacity, (LPVOID*)&hooks::oGetCapacity);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
+					}
+					if (variables::bBetterTrashGrabber)
 					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 100, 9999);
-				else
-				{
-
-				}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
+					}
 				ImGui::EndTabItem();
 			}
 
 			if (ImGui::BeginTabItem("Player")) {
 				if (ImGui::Checkbox("Godmode", &variables::bGodMode))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage), &hooks::hkCanTakeDamage, (LPVOID*)&hooks::oCanTakeDamage);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage), &hooks::hkTakeDamage, (LPVOID*)&hooks::oTakeDamage);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
-				}
-				else
-				{
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
-				}
-
+					if (variables::bGodMode)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage), &hooks::hkCanTakeDamage, (LPVOID*)&hooks::oCanTakeDamage);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage), &hooks::hkTakeDamage, (LPVOID*)&hooks::oTakeDamage);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
+					}
 				if (ImGui::Checkbox("Field Of View (broken)", &variables::bCustomFieldOfView))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView), &hooks::hkSetFieldOfView, (LPVOID*)&hooks::oSetFieldOfView);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
-				}
-				if (variables::bCustomFieldOfView)
+					if (variables::bCustomFieldOfView)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView), &hooks::hkSetFieldOfView, (LPVOID*)&hooks::oSetFieldOfView);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
+					}
+					if (variables::bCustomFieldOfView)
 					ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 140.0f);
-				else
-				{
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
-				}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
+					}
+
 				if (ImGui::Checkbox("Increase Stack Size", &variables::bMaxStack))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit), &hooks::hkGetStackLimit, (LPVOID*)&hooks::oGetStackLimit);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
-				}
-				else
-				{
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
-				}
+					if (variables::bMaxStack)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit), &hooks::hkGetStackLimit, (LPVOID*)&hooks::oGetStackLimit);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
+					}
+
 				if (ImGui::Checkbox("Unlimited Sprint", &variables::bUnlimitedSprint))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina), &hooks::hkSetStamina, (LPVOID*)&hooks::oSetStamina);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
-				}
-				else
-				{
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
-				}
+					if (variables::bUnlimitedSprint)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina), &hooks::hkSetStamina, (LPVOID*)&hooks::oSetStamina);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
+					}
 				if (ImGui::Checkbox("Disable Body Search", &variables::bDisableBodySearches))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch), &hooks::hkUpdateSearch, (LPVOID*)&hooks::oUpdateSearch);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget), &hooks::hkAssignTarget, (LPVOID*)&hooks::oAssignTarget);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest), &hooks::hkDoesPlayerContainItemsOfInterest, (LPVOID*)&hooks::oDoesPlayerContainItemsOfInterest);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch), &hooks::hkBeginBodySearch, (LPVOID*)&hooks::oBeginBodySearch);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer), &hooks::hkBeginBodySearch_LocalPlayer, (LPVOID*)&hooks::oBeginBodySearch_LocalPlayer);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked), &hooks::hkBeginBodySearch_Networked, (LPVOID*)&hooks::oBeginBodySearch_Networked);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
-				}
-				else {
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
-				}
+					if (variables::bDisableBodySearches)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch), &hooks::hkUpdateSearch, (LPVOID*)&hooks::oUpdateSearch);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget), &hooks::hkAssignTarget, (LPVOID*)&hooks::oAssignTarget);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest), &hooks::hkDoesPlayerContainItemsOfInterest, (LPVOID*)&hooks::oDoesPlayerContainItemsOfInterest);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch), &hooks::hkBeginBodySearch, (LPVOID*)&hooks::oBeginBodySearch);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer), &hooks::hkBeginBodySearch_LocalPlayer, (LPVOID*)&hooks::oBeginBodySearch_LocalPlayer);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked), &hooks::hkBeginBodySearch_Networked, (LPVOID*)&hooks::oBeginBodySearch_Networked);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
+					}
+
 				if (ImGui::Checkbox("Disable Arrest", &variables::bDisableArrest))
-				{
-					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest), &hooks::hkUpdateArrest, (LPVOID*)&hooks::oUpdateArrest);
-					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
-				}
-				else
-				{
-					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
-				}
+					if (variables::bDisableArrest)
+					{
+							MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest), &hooks::hkUpdateArrest, (LPVOID*)&hooks::oUpdateArrest);
+							MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
+						}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
+					}
+
 				ImGui::EndTabItem();
 			}
 
