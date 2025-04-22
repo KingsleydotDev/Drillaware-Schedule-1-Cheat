@@ -79,6 +79,7 @@ void RenderMenu()
 				else
 				{
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
 				}
 				if (ImGui::Checkbox("Increase Stack Size", &variables::bMaxStack))
 				{
