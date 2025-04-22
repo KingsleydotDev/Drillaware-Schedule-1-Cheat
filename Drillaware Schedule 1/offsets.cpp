@@ -13,7 +13,7 @@ namespace offsets {
         uintptr_t CameraGetFieldOfView = 0x29870E0; // UnityEngine_Camera$$get_fieldOfView proc near
         uintptr_t GetStackLimit = 0x8527B0; // ScheduleOne_ItemFramework_ItemInstance$$get_StackLimit proc near
         uintptr_t SetStamina = 0x6C6670; // ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
-
+        uintptr_t CameraSetFieldOfView = 0x2987C93; // UnityEngine_Camera$$set_fieldOfView proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near

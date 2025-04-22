@@ -71,6 +71,8 @@ void RenderMenu()
 				{
 					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
 					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView), &hooks::hkSetFieldOfView, (LPVOID*)&hooks::oSetFieldOfView);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
 				}
 				if (variables::bCustomFieldOfView)
 					ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 140.0f);
