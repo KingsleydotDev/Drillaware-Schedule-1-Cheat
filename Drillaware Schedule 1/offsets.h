@@ -25,7 +25,21 @@ namespace offsets {
         // offset for SetStamina
         extern uintptr_t SetStamina; //ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
         // offset for set field
-        extern uintptr_t CameraSetFieldOfView; // UnityEngine_Camera$$set_fieldOfView
+        extern uintptr_t CameraSetFieldOfView; // UnityEngine_Camera$$set_fieldOfView proc near
+        //offset for update arrest
+        extern uintptr_t UpdateArrest; // ScheduleOne.NPCs.Behaviour.PursuitBehaviour$$UpdateArrest proc near
+        // offset for update search
+        extern uintptr_t UpdateSearch; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$UpdateSearch proc near
+        // offset for assign target
+        extern uintptr_t AssignTarget; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$AssignTarget proc near
+        // offset for DoesPlayerContainItemsOfInterest
+        extern uintptr_t DoesPlayerContainItemsOfInterest; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$DoesPlayerContainItemsOfInterest proc near
+       // offset for BeginBodySearch
+        extern uintptr_t BeginBodySearch; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch proc near
+        // offset for BeginBodySearch_LocalPlayer
+        extern uintptr_t BeginBodySearch_LocalPlayer; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
+        //offset for BeginBodySearch_LocalPlayer
+        extern uintptr_t BeginBodySearch_Networked; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
     }
     namespace equippable {
         // QoL

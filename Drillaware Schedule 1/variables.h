@@ -13,4 +13,5 @@ namespace variables
 	extern bool bGodMode;
 	extern bool bMaxStack;
 	extern bool bUnlimitedSprint;
+	extern bool bDisableBodySearches;
 }

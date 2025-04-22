@@ -14,6 +14,13 @@ namespace offsets {
         uintptr_t GetStackLimit = 0x8527B0; // ScheduleOne_ItemFramework_ItemInstance$$get_StackLimit proc near
         uintptr_t SetStamina = 0x6C6670; // ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
         uintptr_t CameraSetFieldOfView = 0x2987C93; // UnityEngine_Camera$$set_fieldOfView proc near
+        uintptr_t UpdateArrest = 0x62DAD0; // ScheduleOne.NPCs.Behaviour.PursuitBehaviour$$UpdateArrest proc near
+        uintptr_t UpdateSearch = 0x609A90; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$UpdateSearch proc near
+        uintptr_t AssignTarget = 0x606E60; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$AssignTarget proc near
+        uintptr_t DoesPlayerContainItemsOfInterest = 0x607A70; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$DoesPlayerContainItemsOfInterest proc near
+        uintptr_t BeginBodySearch = 0x57BAF0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch proc near
+        uintptr_t BeginBodySearch_LocalPlayer = 0x57B940; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
+        uintptr_t BeginBodySearch_Networked = 0x57B9C0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near

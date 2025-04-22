@@ -25,7 +25,8 @@ namespace hooks {
     // Hooked version of CanTakeDamage — always returns false (godmode)
     bool __fastcall hkCanTakeDamage(void* __this);
 
-    // TakeDamag
+
+    // TakeDamage
     // Typedef for the original TakeDamage function
     typedef void(__fastcall* tTakeDamage)(void* __this, void* damageInfo);
 
@@ -45,6 +46,7 @@ namespace hooks {
 
     // Hook function declaration
     float __fastcall hkGetFieldOfView(void* __this);
+     
 
     // SetFieldOfView
     // Correct typedef for a __fastcall function that returns float
@@ -56,6 +58,7 @@ namespace hooks {
     // Hook function declaration
     float __fastcall hkSetFieldOfView(void* __this);
 
+
     // GetStackLimit
     typedef float(__fastcall* tGetStackLimit)(void* __this);
 
@@ -64,6 +67,7 @@ namespace hooks {
 
     // Hook function declaration
     int __fastcall hkGetStackLimit(void* __this);
+
 
     // Unlimited stamina
     // Type definition for SetStamina
@@ -74,9 +78,31 @@ namespace hooks {
     void __fastcall hkSetStamina(void* __this, float stamina);
 
 
+    //Disable body search  by yousef 
+    // Hook typedefs
+    typedef void(__fastcall* tUpdateSearch)(void* __this);
+    typedef void(__fastcall* tAssignTarget)(void* __this);
+    typedef bool(__fastcall* tDoesPlayerContainItemsOfInterest)(void* __this);
+    typedef void(__fastcall* tBeginBodySearch)(void* __this);
+    typedef void(__fastcall* tBeginBodySearch_LocalPlayer)(void* __this);
+    typedef void(__fastcall* tBeginBodySearch_Networked)(void* __this);
 
+    // Original function pointers
+    extern tUpdateSearch oUpdateSearch;
+    extern tAssignTarget oAssignTarget;
+    extern tDoesPlayerContainItemsOfInterest oDoesPlayerContainItemsOfInterest;
+    extern tBeginBodySearch oBeginBodySearch;
+    extern tBeginBodySearch_LocalPlayer oBeginBodySearch_LocalPlayer;
+    extern tBeginBodySearch_Networked oBeginBodySearch_Networked;
 
-
+    // Hook function declarations
+    void __fastcall hkUpdateSearch(void* __this);
+    void __fastcall hkAssignTarget(void* __this);
+    bool __fastcall hkDoesPlayerContainItemsOfInterest(void* __this);
+    void __fastcall hkBeginBodySearch(void* __this);
+    void __fastcall hkBeginBodySearch_LocalPlayer(void* __this);
+    void __fastcall hkBeginBodySearch_Networked(void* __this);
+    // end of body search 
 
 
 }

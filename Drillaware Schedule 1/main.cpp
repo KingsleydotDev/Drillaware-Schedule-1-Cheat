@@ -99,6 +99,29 @@ void RenderMenu()
 				{
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
 				}
+				if (ImGui::Checkbox("Disable Body Search", &variables::bDisableBodySearches))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch), &hooks::hkUpdateSearch, (LPVOID*)&hooks::oUpdateSearch);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget), &hooks::hkAssignTarget, (LPVOID*)&hooks::oAssignTarget);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest), &hooks::hkDoesPlayerContainItemsOfInterest, (LPVOID*)&hooks::oDoesPlayerContainItemsOfInterest);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch), &hooks::hkBeginBodySearch, (LPVOID*)&hooks::oBeginBodySearch);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer), &hooks::hkBeginBodySearch_LocalPlayer, (LPVOID*)&hooks::oBeginBodySearch_LocalPlayer);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked), &hooks::hkBeginBodySearch_Networked, (LPVOID*)&hooks::oBeginBodySearch_Networked);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
+				}
+				else {
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateSearch));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::AssignTarget));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::DoesPlayerContainItemsOfInterest));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
+				}
 				ImGui::EndTabItem();
 			}
 

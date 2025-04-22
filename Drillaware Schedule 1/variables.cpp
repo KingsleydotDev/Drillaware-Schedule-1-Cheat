@@ -12,4 +12,5 @@ namespace variables
 	bool bGodMode = false;
 	bool bMaxStack = false;
 	bool  bUnlimitedSprint = false;
+	bool bDisableBodySearches = false;
 }

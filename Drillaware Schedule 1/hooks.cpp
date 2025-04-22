@@ -67,4 +67,46 @@ namespace hooks {
         return 9999;
     }
 
+    //Disable body search 
+    // Original function pointers
+    tUpdateSearch oUpdateSearch = nullptr;
+    tAssignTarget oAssignTarget = nullptr;
+    tDoesPlayerContainItemsOfInterest oDoesPlayerContainItemsOfInterest = nullptr;
+    tBeginBodySearch oBeginBodySearch = nullptr;
+    tBeginBodySearch_LocalPlayer oBeginBodySearch_LocalPlayer = nullptr;
+    tBeginBodySearch_Networked oBeginBodySearch_Networked = nullptr;
+
+    // Hook implementations
+
+    void __fastcall hkUpdateSearch(void* __this) {
+        // Skip updating the search
+        return;
+    }
+
+    void __fastcall hkAssignTarget(void* __this) {
+        // Skip assigning target
+        return;
+    }
+
+    bool __fastcall hkDoesPlayerContainItemsOfInterest(void* __this) {
+        // Always return false to indicate no interesting items
+        return false;
+    }
+
+    void __fastcall hkBeginBodySearch(void* __this) {
+        // Skip body search
+        return;
+    }
+
+    void __fastcall hkBeginBodySearch_LocalPlayer(void* __this) {
+        // Skip local player body search
+        return;
+    }
+
+    void __fastcall hkBeginBodySearch_Networked(void* __this) {
+        // Skip networked body search
+        return;
+    }
+    // end of body search 
+
 }
