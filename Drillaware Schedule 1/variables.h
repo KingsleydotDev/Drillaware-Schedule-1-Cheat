@@ -14,4 +14,5 @@ namespace variables
 	extern bool bMaxStack;
 	extern bool bUnlimitedSprint;
 	extern bool bDisableBodySearches;
+	extern bool bDisableArrest;
 }

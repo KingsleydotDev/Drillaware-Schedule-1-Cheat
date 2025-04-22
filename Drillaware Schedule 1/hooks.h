@@ -104,5 +104,13 @@ namespace hooks {
     void __fastcall hkBeginBodySearch_Networked(void* __this);
     // end of body search 
 
+    // Anti Arrest - Hook typedef
+    typedef void(__fastcall* tUpdateArrest)(void* __this);
+
+    // External original function pointer
+    extern tUpdateArrest oUpdateArrest;
+
+    // Hook function declaration
+    void __fastcall hkUpdateArrest(void* __this);
 
 }

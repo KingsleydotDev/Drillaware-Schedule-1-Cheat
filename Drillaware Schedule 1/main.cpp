@@ -122,6 +122,15 @@ void RenderMenu()
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_LocalPlayer));
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::BeginBodySearch_Networked));
 				}
+				if (ImGui::Checkbox("Disable Arrest", &variables::bDisableArrest))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest), &hooks::hkUpdateArrest, (LPVOID*)&hooks::oUpdateArrest);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
+				}
+				else
+				{
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
+				}
 				ImGui::EndTabItem();
 			}
 

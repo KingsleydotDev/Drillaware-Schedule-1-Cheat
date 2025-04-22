@@ -11,6 +11,7 @@ namespace variables
 	// Player
 	bool bGodMode = false;
 	bool bMaxStack = false;
-	bool  bUnlimitedSprint = false;
+	bool bUnlimitedSprint = false;
 	bool bDisableBodySearches = false;
+	bool bDisableArrest = false;
 }

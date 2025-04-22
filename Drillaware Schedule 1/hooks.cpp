@@ -109,4 +109,13 @@ namespace hooks {
     }
     // end of body search 
 
+    // Original function pointer definition
+    tUpdateArrest oUpdateArrest = nullptr;
+
+    // Hook implementation
+    void __fastcall hkUpdateArrest(void* __this) {
+        // Prevent the arrest from being processed
+        return;
+    }
+
 }
