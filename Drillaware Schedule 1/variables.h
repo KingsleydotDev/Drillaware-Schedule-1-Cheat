@@ -10,5 +10,5 @@ namespace variables
 
 
 	// Player
-	extern bool godMode;
+	extern bool bGodMode;
 }

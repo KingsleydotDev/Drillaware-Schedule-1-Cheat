@@ -9,5 +9,5 @@ namespace variables
 	float fFieldOfView = 80.0f;
 
 	// Player
-	bool godMode = false;
+	bool bGodMode = false;
 }

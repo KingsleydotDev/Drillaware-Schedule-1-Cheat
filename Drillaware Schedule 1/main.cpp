@@ -54,7 +54,7 @@ void RenderMenu()
 			}
 
 			if (ImGui::BeginTabItem("Player")) {
-				if (ImGui::Checkbox("Godmode", &variables::godMode))
+				if (ImGui::Checkbox("Godmode", &variables::bGodMode))
 				{
 					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage), &hooks::hkCanTakeDamage, (LPVOID*)&hooks::oCanTakeDamage);
 					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
