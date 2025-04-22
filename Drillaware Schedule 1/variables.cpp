@@ -3,8 +3,10 @@
 namespace variables
 {
 	// QoL
-	bool betterTrashGrabber = false;
+	bool bBetterTrashGrabber = false;
 	int iTrashGrabberCapacityAmount = 100;
+	bool bCustomFieldOfView = false;
+	float fFieldOfView = 80.0f;
 
 	// Player
 	bool godMode = false;

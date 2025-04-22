@@ -39,13 +39,12 @@ void RenderMenu()
 		if (ImGui::BeginTabBar("MainTabBar")) {
 			if (ImGui::BeginTabItem("QoL")) {
 				ImGui::Text("Quality Of Life Mods.");
-				if (ImGui::Checkbox("Better Trash Grabber", &variables::betterTrashGrabber))
+				if (ImGui::Checkbox("Better Trash Grabber", &variables::bBetterTrashGrabber))
 				{
-					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 10, 200);
 					MH_CreateHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity), &hooks::hkGetCapacity, (LPVOID*)&hooks::oGetCapacity);
 					MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
 				}
-				if (variables::betterTrashGrabber)
+				if (variables::bBetterTrashGrabber)
 					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 10, 200);
 				else
 				{
@@ -67,8 +66,21 @@ void RenderMenu()
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
 				}
+
+				if (ImGui::Checkbox("Field Of View", &variables::bCustomFieldOfView))
+				{
+					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
+					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+				}
+				if (variables::bCustomFieldOfView)
+					ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 140.0f);
+				else
+				{
+					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
+				}
 				ImGui::EndTabItem();
 			}
+
 
 			if (ImGui::BeginTabItem("World")) {
 				ImGui::Text("World tab content goes here.");

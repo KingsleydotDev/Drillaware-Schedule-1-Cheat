@@ -25,6 +25,7 @@ namespace hooks {
     // Hooked version of CanTakeDamage — always returns false (godmode)
     bool __fastcall hkCanTakeDamage(void* __this);
 
+
     // TakeDamag
     // Typedef for the original TakeDamage function
     typedef void(__fastcall* tTakeDamage)(void* __this, void* damageInfo);
@@ -34,4 +35,17 @@ namespace hooks {
 
     // Hook function declaration
     void __fastcall hkTakeDamage(void* __this, void* damageInfo);
+
+
+    // GetFieldOfView
+    // Correct typedef for a __fastcall function that returns float
+    typedef float(__fastcall* tGetFieldOfView)(void* __this);
+
+    // Declare the original function pointer
+    extern tGetFieldOfView oGetFieldOfView;
+
+    // Hook function declaration
+    float __fastcall hkGetFieldOfView(void* __this);
+
+
 }

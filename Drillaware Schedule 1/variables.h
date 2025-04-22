@@ -3,8 +3,10 @@
 namespace variables
 {
 	// QoL
-	extern bool betterTrashGrabber;
+	extern bool bBetterTrashGrabber;
 	extern int iTrashGrabberCapacityAmount;
+	extern bool bCustomFieldOfView;
+	extern float fFieldOfView;
 
 
 	// Player

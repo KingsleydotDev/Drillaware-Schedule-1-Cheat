@@ -17,6 +17,8 @@ namespace offsets {
         extern uintptr_t CanTakeDamage;// ScheduleOne_PlayerScripts_Health_PlayerHealth$$get_CanTakeDamage proc near
         // offset to take damage
         extern uintptr_t TakeDamage; // ScheduleOne_PlayerScripts_Health_PlayerHealth$$RpcWriter___Observers_TakeDamage_3505310624 proc near
+        // offset to set camera field of view
+        extern uintptr_t CameraGetFieldOfView; // UnityEngine_Camera$$get_fieldOfView proc near
     }
     namespace equippable {
         // QoL

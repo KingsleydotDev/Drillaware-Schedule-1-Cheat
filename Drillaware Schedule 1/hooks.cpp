@@ -33,4 +33,13 @@ namespace hooks {
         // No call to the original function, meaning damage is ignored
     }
 
+
+    // hooked version of GetFieldOfView
+    // Define the original function pointer
+    tGetFieldOfView oGetFieldOfView = nullptr;
+
+    // Hook function
+    float __fastcall hkGetFieldOfView(void* __this) {
+        return variables::fFieldOfView;
+    }
 }
