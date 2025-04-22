@@ -45,7 +45,7 @@ void RenderMenu()
 					MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
 				}
 				if (variables::bBetterTrashGrabber)
-					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 10, 200);
+					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 100, 9999);
 				else
 				{
 
@@ -102,6 +102,12 @@ void RenderMenu()
 
 			if (ImGui::BeginTabItem("World")) {
 				ImGui::Text("World tab content goes here.");
+				ImGui::EndTabItem();
+			}
+
+			if (ImGui::BeginTabItem("Credits")) {
+				ImGui::Text("xevss.");
+				ImGui::Text("yousef.");
 				ImGui::EndTabItem();
 			}
 

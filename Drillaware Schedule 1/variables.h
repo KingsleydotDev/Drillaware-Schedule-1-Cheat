@@ -7,10 +7,10 @@ namespace variables
 	extern int iTrashGrabberCapacityAmount;
 	extern bool bCustomFieldOfView;
 	extern float fFieldOfView;
-	extern bool bUnlimitedSprint;
 
 
 	// Player
 	extern bool bGodMode;
 	extern bool bMaxStack;
+	extern bool bUnlimitedSprint;
 }

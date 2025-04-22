@@ -11,7 +11,8 @@ namespace offsets {
 
     namespace localplayer {
         //QoL
-
+        // 
+        // 
         // Player 
         // Offset to check if the player can take damage
         extern uintptr_t CanTakeDamage;// ScheduleOne_PlayerScripts_Health_PlayerHealth$$get_CanTakeDamage proc near
@@ -29,5 +30,4 @@ namespace offsets {
         // offset for max items in trash grabber
         extern uintptr_t TrashGrabberGetCapacity; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
     }
-
-}
+}    

@@ -1,5 +1,6 @@
 #pragma once
-#include "includes.h"
+#include "offsets.h"
+#include <Windows.h>
 
 // Offsets namespace for memory-related variables
 namespace offsets {
@@ -12,8 +13,19 @@ namespace offsets {
         uintptr_t CameraGetFieldOfView = 0x29870E0; // UnityEngine_Camera$$get_fieldOfView proc near
         uintptr_t GetStackLimit = 0x8527B0; // ScheduleOne_ItemFramework_ItemInstance$$get_StackLimit proc near
         uintptr_t SetStamina = 0x6C6670; // ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
+
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
+        uintptr_t UpdateTrashGrabber = 0x84F620; // ScheduleOne.Equipping.Equippable_TrashGrabber$$Update proc near
     }
+}
+namespace pointer {
+    uintptr_t MaxMixQuantity = 0x294;
+    uintptr_t MixTimePerItem = 0x290;
+    uintptr_t MovementSpeedScale = 0x180;
+    uintptr_t CurrentDropTime = 0xC0;
+    uintptr_t TimeSinceLastDrop = 0xC4;
+    uintptr_t DropForce = 0xA4;
+    uintptr_t minsUntilDeaddropReady = 0x340;
 }

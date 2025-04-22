@@ -14,7 +14,6 @@ namespace hooks {
 
 
 
-
     // Player
     // Initialize the original function pointer to nullptr
     tCanTakeDamage oCanTakeDamage = nullptr;
