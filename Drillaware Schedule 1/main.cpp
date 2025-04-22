@@ -170,11 +170,11 @@ DWORD WINAPI MainThread(LPVOID lpReserved)
 		{
 			kiero::bind(8, (void**)&oPresent, hkPresent);
 			init_hook = true;
-			AllocConsole();
+			//AllocConsole();
 			FILE * f;
-			freopen_s(&f, "CONOUT$", "w", stdout);
-			std::cout << "Whats up fam this is the debug console" << std::endl;
-			std::cout <<"GameAssembly.dll Module Base: " << std::hex << offsets::base << std::endl;
+			//freopen_s(&f, "CONOUT$", "w", stdout);
+			//std::cout << "Whats up fam this is the debug console" << std::endl;
+			//std::cout <<"GameAssembly.dll Module Base: " << std::hex << offsets::base << std::endl;
 
 		}
 	} while (!init_hook);
