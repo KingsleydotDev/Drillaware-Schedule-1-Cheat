@@ -67,7 +67,7 @@ void RenderMenu()
 					MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
 				}
 
-				if (ImGui::Checkbox("Field Of View", &variables::bCustomFieldOfView))
+				if (ImGui::Checkbox("Field Of View (broken)", &variables::bCustomFieldOfView))
 				{
 					MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
 					MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
