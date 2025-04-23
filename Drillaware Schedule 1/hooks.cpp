@@ -127,7 +127,7 @@ namespace hooks {
     // Hooked version of SkateboardIsGrounded
     // Forces return value to false, making the player invulnerable
     bool __fastcall hkSkateboardIsGrounded(void* __this) {
-        return true; // bhops enabled
+        return true;
     }
 
 }
