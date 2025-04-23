@@ -95,8 +95,8 @@ void RenderMenu()
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::GetStackLimit));
 					}
 
-				if (ImGui::Checkbox("Unlimited Sprint", &variables::bUnlimitedSprint))
-					if (variables::bUnlimitedSprint)
+				if (ImGui::Checkbox("Unlimited Stamina (fighting)", &variables::bUnlimitedSstamina))
+					if (variables::bUnlimitedSstamina)
 					{
 						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina), &hooks::hkSetStamina, (LPVOID*)&hooks::oSetStamina);
 						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetStamina));
