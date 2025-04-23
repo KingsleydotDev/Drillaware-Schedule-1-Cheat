@@ -14,4 +14,7 @@ namespace variables
 	bool bUnlimitedSprint = false;
 	bool bDisableBodySearches = false;
 	bool bDisableArrest = false;
+
+	//world 
+	bool bSkateboardJump = false;
 }

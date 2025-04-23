@@ -117,5 +117,17 @@ namespace hooks {
         // Prevent the arrest from being processed
         return;
     }
+    // end of body search
+
+
+    // world 
+    // Initialize the original function pointer to nullptr
+    tSkateboardIsGrounded oSkateboardIsGrounded = nullptr;
+
+    // Hooked version of SkateboardIsGrounded
+    // Forces return value to false, making the player invulnerable
+    bool __fastcall hkSkateboardIsGrounded(void* __this) {
+        return true; // bhops enabled
+    }
 
 }

@@ -15,4 +15,7 @@ namespace variables
 	extern bool bUnlimitedSprint;
 	extern bool bDisableBodySearches;
 	extern bool bDisableArrest;
+
+	//world 
+	extern bool bSkateboardJump;
 }

@@ -46,4 +46,8 @@ namespace offsets {
         // offset for max items in trash grabber
         extern uintptr_t TrashGrabberGetCapacity; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
     }
+    namespace world
+    {
+        extern uintptr_t SkateboardIsGrounded;
+    }
 }    

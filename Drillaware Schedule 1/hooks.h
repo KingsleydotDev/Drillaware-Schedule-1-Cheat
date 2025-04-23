@@ -113,4 +113,17 @@ namespace hooks {
     // Hook function declaration
     void __fastcall hkUpdateArrest(void* __this);
 
+
+    // world
+
+     // SkateboardIsGrounded
+    // Typedef for the SkateboardIsGrounded function signature
+    typedef bool(__fastcall* tSkateboardIsGrounded)(void* __this);
+
+    // Pointer to the original SkateboardIsGrounded function
+    extern tSkateboardIsGrounded oSkateboardIsGrounded;
+
+    // Hooked version of SkateboardIsGrounded — always returns true bhop
+    bool __fastcall hkSkateboardIsGrounded(void* __this);
+
 }

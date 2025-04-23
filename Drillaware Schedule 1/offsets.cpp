@@ -26,6 +26,10 @@ namespace offsets {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
         uintptr_t UpdateTrashGrabber = 0x84F620; // ScheduleOne.Equipping.Equippable_TrashGrabber$$Update proc near
     }
+    namespace world
+    {
+        uintptr_t SkateboardIsGrounded = 0xA63020; //ScheduleOne_Skating_Skateboard$$IsGrounded proc near
+    }
 }
 namespace pointer {
     uintptr_t MaxMixQuantity = 0x294;

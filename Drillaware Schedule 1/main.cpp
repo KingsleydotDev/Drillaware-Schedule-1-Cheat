@@ -136,7 +136,7 @@ void RenderMenu()
 					{
 							MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest), &hooks::hkUpdateArrest, (LPVOID*)&hooks::oUpdateArrest);
 							MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
-						}
+					}
 					else
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
@@ -147,7 +147,16 @@ void RenderMenu()
 
 
 			if (ImGui::BeginTabItem("World")) {
-				ImGui::Text("World tab content goes here.");
+				if (ImGui::Checkbox("Skateboard Glider", &variables::bSkateboardJump))
+					if (&variables::bSkateboardJump)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::SkateboardIsGrounded), &hooks::hkSkateboardIsGrounded, (LPVOID*)&hooks::oSkateboardIsGrounded);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::SkateboardIsGrounded));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::SkateboardIsGrounded));
+					}
 				ImGui::EndTabItem();
 			}
 
