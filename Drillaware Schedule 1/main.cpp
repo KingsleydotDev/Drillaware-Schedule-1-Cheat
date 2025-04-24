@@ -206,7 +206,7 @@ void RenderMenu()
 
 			if (ImGui::BeginTabItem("Credits")) {
 				ImGui::Text("xevss.");
-				ImGui::Text("yousef.");
+				ImGui::Text("yousef029");
 				ImGui::EndTabItem();
 			}
 
