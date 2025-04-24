@@ -105,6 +105,9 @@ namespace hooks {
     // Hooked version of SkateboardIsGrounded — always returns true bhop
     bool __fastcall hkSkateboardIsGrounded(void* __this);
 
+
+    //NPC 
+    // 
     // IsCurrentlyActiveWithTolerance
     // Typedef for theIsCurrentlyActiveWithTolerance function signature
     typedef bool(__fastcall* tIsCurrentlyActiveWithTolerance)(void* __this);
@@ -112,6 +115,14 @@ namespace hooks {
     extern tIsCurrentlyActiveWithTolerance oIsCurrentlyActiveWithTolerance;
     // Hooked version of IsCurrentlyActiveWithTolerance — always returns true bhop
     bool __fastcall hkIsCurrentlyActiveWithTolerance(void* __this);
+
+    //GetSampleSuccess
+    // Typedef for the function pointer
+    typedef float(__fastcall* tGetSampleSuccess)(void* __this);
+    // Declaration of the original function pointer
+    extern tGetSampleSuccess oGetSampleSuccess;
+    // Hook function declaration
+    float __fastcall hkGetSampleSuccess(void* __this);
 
 
 }

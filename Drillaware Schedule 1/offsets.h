@@ -53,5 +53,6 @@ namespace offsets {
     namespace npc
     {
         extern uintptr_t IsCurrentlyActiveWithTolerance; // ScheduleOne_Law_CurfewManager$$get_IsCurrentlyActiveWithTolerance proc near
+        extern uintptr_t GetSampleSuccess;//ScheduleOne_Economy_Customer$$GetSampleSuccess proc near
     }
 }    

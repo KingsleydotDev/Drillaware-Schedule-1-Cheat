@@ -171,6 +171,16 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
 					}
+				if (ImGui::Checkbox("Always Accept Sample", &variables::bAlwaysAcceptSample))
+					if (&variables::bAlwaysAcceptSample)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::npc::GetSampleSuccess), &hooks::hkGetSampleSuccess, (LPVOID*)&hooks::oGetSampleSuccess);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::npc::GetSampleSuccess));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::GetSampleSuccess));
+					}
 			}
 
 			if (ImGui::BeginTabItem("Credits")) {

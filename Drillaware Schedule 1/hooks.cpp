@@ -117,11 +117,21 @@ namespace hooks {
         return true;
     }
 
+    //NPC
+    // 
     // Initialize the original function pointer to nullptr
     tIsCurrentlyActiveWithTolerance oIsCurrentlyActiveWithTolerance = nullptr;
     // Hooked version of IsCurrentlyActiveWithTolerance
     bool __fastcall hkIsCurrentlyActiveWithTolerance(void* __this) {
         return false; // set to false so people thaink it's not curfew
+    }
+
+    //GetSampleSuccess
+    // Initialize the original function pointer to nullptr
+    tGetSampleSuccess oGetSampleSuccess = nullptr;
+    // Hook function definition
+    float __fastcall hkGetSampleSuccess(void* __this) {
+        return 1.0f;
     }
 
 }

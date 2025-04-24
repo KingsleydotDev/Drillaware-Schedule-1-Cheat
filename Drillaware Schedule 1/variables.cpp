@@ -18,4 +18,8 @@ namespace variables
 	//world 
 	bool bSkateboardJump = false;
 	bool bNoCurfew = false;
+
+	//NPC
+	bool bAlwaysAcceptSample = false;
+	bool bOffersNeverExpire = false;
 }
