@@ -3,71 +3,55 @@
 // Hook declarations for game functions
 namespace hooks {
     // QoL
+    // 
     // Trash Grabber GetCapacity
     // Typedef for the original GetCapacity function
     typedef void(__fastcall* tGetCapacity)(void* __this, void* damageInfo);
-
     // Declaration of the original function pointer
     extern tGetCapacity oGetCapacity;
-
     // Hook function declaration
     int __fastcall hkGetCapacity(void* __this);
 
-
     // Player
+    // 
     // CanTakeDamage
     // Typedef for the CanTakeDamage function signature
     typedef bool(__fastcall* tCanTakeDamage)(void* __this);
-
     // Pointer to the original CanTakeDamage function
     extern tCanTakeDamage oCanTakeDamage;
-
     // Hooked version of CanTakeDamage — always returns false (godmode)
     bool __fastcall hkCanTakeDamage(void* __this);
-
 
     // TakeDamage
     // Typedef for the original TakeDamage function
     typedef void(__fastcall* tTakeDamage)(void* __this, void* damageInfo);
-
     // Declaration of the original function pointer
     extern tTakeDamage oTakeDamage;
-
     // Hook function declaration
     void __fastcall hkTakeDamage(void* __this, void* damageInfo);
-
 
     // GetFieldOfView
     // Correct typedef for a __fastcall function that returns float
     typedef float(__fastcall* tGetFieldOfView)(void* __this);
-
     // Declare the original function pointer
     extern tGetFieldOfView oGetFieldOfView;
-
     // Hook function declaration
     float __fastcall hkGetFieldOfView(void* __this);
      
-
     // SetFieldOfView
     // Correct typedef for a __fastcall function that returns float
     typedef float(__fastcall* tSetFieldOfView)(void* __this);
-
     // Declare the original function pointer
     extern tSetFieldOfView oSetFieldOfView;
-
     // Hook function declaration
     float __fastcall hkSetFieldOfView(void* __this);
 
-
     // GetStackLimit
     typedef float(__fastcall* tGetStackLimit)(void* __this);
-
     // Declare the original function pointer
     extern tGetStackLimit oGetStackLimit;
-
     // Hook function declaration
     int __fastcall hkGetStackLimit(void* __this);
-
 
     // Unlimited stamina
     // Type definition for SetStamina
@@ -76,7 +60,6 @@ namespace hooks {
     extern tSetStamina oSetStamina;
     // Our hook function
     void __fastcall hkSetStamina(void* __this, float stamina);
-
 
     //Disable body search  by yousef 
     // Hook typedefs
@@ -106,33 +89,27 @@ namespace hooks {
 
     // Anti Arrest - Hook typedef
     typedef void(__fastcall* tUpdateArrest)(void* __this);
-
     // External original function pointer
     extern tUpdateArrest oUpdateArrest;
-
     // Hook function declaration
     void __fastcall hkUpdateArrest(void* __this);
 
 
     // world
-
-     // SkateboardIsGrounded
+    // 
+    // SkateboardIsGrounded
     // Typedef for the SkateboardIsGrounded function signature
     typedef bool(__fastcall* tSkateboardIsGrounded)(void* __this);
-
     // Pointer to the original SkateboardIsGrounded function
     extern tSkateboardIsGrounded oSkateboardIsGrounded;
-
     // Hooked version of SkateboardIsGrounded — always returns true bhop
     bool __fastcall hkSkateboardIsGrounded(void* __this);
 
     // IsCurrentlyActiveWithTolerance
-// Typedef for theIsCurrentlyActiveWithTolerance function signature
+    // Typedef for theIsCurrentlyActiveWithTolerance function signature
     typedef bool(__fastcall* tIsCurrentlyActiveWithTolerance)(void* __this);
-
     // Pointer to the original IsCurrentlyActiveWithTolerance function
     extern tIsCurrentlyActiveWithTolerance oIsCurrentlyActiveWithTolerance;
-
     // Hooked version of IsCurrentlyActiveWithTolerance — always returns true bhop
     bool __fastcall hkIsCurrentlyActiveWithTolerance(void* __this);
 
