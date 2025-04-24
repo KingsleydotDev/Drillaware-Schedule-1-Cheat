@@ -40,6 +40,8 @@ namespace offsets {
         extern uintptr_t BeginBodySearch_LocalPlayer; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
         //offset for BeginBodySearch_LocalPlayer
         extern uintptr_t BeginBodySearch_Networked; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
+        //offset for PunchController
+        extern uintptr_t PunchControllerUpdate; //ScheduleOne_Combat_PunchController$$Update proc near
     }
     namespace equippable {
         // QoL
@@ -57,3 +59,14 @@ namespace offsets {
         extern uintptr_t GetOfferSuccessChance; // ScheduleOne_Economy_Customer$$GetOfferSuccessChance proc near
     }
 }    
+namespace pointer {
+    extern uintptr_t MaxMixQuantity;
+    extern uintptr_t MixTimePerItem;
+    extern uintptr_t MovementSpeedScale;;
+    extern uintptr_t CurrentDropTime;
+    extern uintptr_t TimeSinceLastDrop;
+    extern uintptr_t DropForce;
+    extern uintptr_t minsUntilDeaddropReady;
+    extern uintptr_t MinPunchDamage;            // ScheduleOne.Combat.PunchController
+    extern uintptr_t MaxPunchDamage;            // ScheduleOne.Combat.PunchController
+}

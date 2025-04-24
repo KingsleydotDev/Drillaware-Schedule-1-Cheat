@@ -16,6 +16,11 @@ namespace variables
 	extern bool bDisableBodySearches;
 	extern bool bDisableArrest;
 
+	extern bool bOneHitPunch;
+	extern float foriginalMinDamage;
+	extern float foriginalMaxDamage;
+	extern bool bOneHitPunchStored;
+
 	//world 
 	extern bool bSkateboardJump;
 	extern bool bNoCurfew;

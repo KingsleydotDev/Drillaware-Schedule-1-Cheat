@@ -15,6 +15,13 @@ namespace variables
 	bool bDisableBodySearches = false;
 	bool bDisableArrest = false;
 
+	bool bOneHitPunch = false;
+	float foriginalMinDamage = 0.0f;
+	float foriginalMaxDamage = 0.0f;
+	bool bOneHitPunchStored = false;
+
+
+
 	//world 
 	bool bSkateboardJump = false;
 	bool bNoCurfew = false;

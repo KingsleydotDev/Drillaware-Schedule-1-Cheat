@@ -21,6 +21,7 @@ namespace offsets {
         uintptr_t BeginBodySearch = 0x57BAF0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch proc near
         uintptr_t BeginBodySearch_LocalPlayer = 0x57B940; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
         uintptr_t BeginBodySearch_Networked = 0x57B9C0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
+        uintptr_t PunchControllerUpdate = 0x76F220; //ScheduleOne_Combat_PunchController$$Update proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
@@ -45,4 +46,6 @@ namespace pointer {
     uintptr_t TimeSinceLastDrop = 0xC4;
     uintptr_t DropForce = 0xA4;
     uintptr_t minsUntilDeaddropReady = 0x340;
+    uintptr_t MinPunchDamage = 0x30;            // ScheduleOne.Combat.PunchController
+    uintptr_t MaxPunchDamage = 0x34;            // ScheduleOne.Combat.PunchController
 }

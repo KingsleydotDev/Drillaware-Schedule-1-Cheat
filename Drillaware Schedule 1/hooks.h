@@ -94,6 +94,14 @@ namespace hooks {
     // Hook function declaration
     void __fastcall hkUpdateArrest(void* __this);
 
+    //OneHitPunch
+    // Typedef for the PunchControllerUpdate function
+    typedef void(__fastcall* tPunchControllerUpdate)(void* __this);
+    // Declaration of the original function pointer
+    extern tPunchControllerUpdate oPunchControllerUpdate;
+    // Hook function declaration
+    void __fastcall hkPunchControllerUpdate(void* __this);
+
 
     // world
     // 

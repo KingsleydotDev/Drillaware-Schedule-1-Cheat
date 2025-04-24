@@ -141,6 +141,16 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::UpdateArrest));
 					}
+				if (ImGui::Checkbox("One Hit Punch", &variables::bOneHitPunch))
+					if (variables::bOneHitPunch)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::PunchControllerUpdate), &hooks::hkPunchControllerUpdate, (LPVOID*)&hooks::oPunchControllerUpdate);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::PunchControllerUpdate));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::PunchControllerUpdate));
+					}
 
 				ImGui::EndTabItem();
 			}

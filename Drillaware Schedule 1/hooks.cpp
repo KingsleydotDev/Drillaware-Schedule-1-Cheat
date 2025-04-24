@@ -110,6 +110,32 @@ namespace hooks {
         return;
     }
 
+    // Initialize the original function pointer
+    tPunchControllerUpdate oPunchControllerUpdate = nullptr;
+    // Hook function definition
+    void __fastcall hkPunchControllerUpdate(void* __this) {
+        if (oPunchControllerUpdate) {
+            if (!variables::bOneHitPunchStored) {
+                variables::foriginalMinDamage = *(float*)((uintptr_t)__this + pointer::MinPunchDamage);
+                variables::foriginalMaxDamage = *(float*)((uintptr_t)__this + pointer::MaxPunchDamage);
+                variables::bOneHitPunchStored = true;
+            }
+
+            if (variables::bOneHitPunch) {
+                *(float*)((uintptr_t)__this + pointer::MinPunchDamage) = 10000.0f;
+                *(float*)((uintptr_t)__this + pointer::MaxPunchDamage) = 1000000.0f;
+            }
+            else {
+                *(float*)((uintptr_t)__this + pointer::MinPunchDamage) = variables::foriginalMinDamage;
+                *(float*)((uintptr_t)__this + pointer::MaxPunchDamage) = variables::foriginalMaxDamage;
+            }
+        }
+
+        if (oPunchControllerUpdate) {
+            oPunchControllerUpdate(__this);
+        }
+    }
+
 
     // world 
     // Initialize the original function pointer to nullptr
