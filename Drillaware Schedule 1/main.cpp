@@ -157,10 +157,6 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::SkateboardIsGrounded));
 					}
-				ImGui::EndTabItem();
-			}
-			if (ImGui::BeginTabItem("NPC"))
-			{
 				if (ImGui::Checkbox("No Curfew", &variables::bNoCurfew))
 					if (&variables::bNoCurfew)
 					{
@@ -171,6 +167,10 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
 					}
+				ImGui::EndTabItem();
+			}
+			if (ImGui::BeginTabItem("NPC"))
+			{
 				if (ImGui::Checkbox("Always Accept Sample", &variables::bAlwaysAcceptSample))
 					if (&variables::bAlwaysAcceptSample)
 					{
@@ -181,6 +181,7 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::GetSampleSuccess));
 					}
+				ImGui::EndTabItem();
 			}
 
 			if (ImGui::BeginTabItem("Credits")) {
