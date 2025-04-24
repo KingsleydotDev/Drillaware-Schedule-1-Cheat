@@ -124,5 +124,14 @@ namespace hooks {
     // Hook function declaration
     float __fastcall hkGetSampleSuccess(void* __this);
 
+    //GetOfferSuccessChance
+    // // Typedef for the function pointer
+    typedef float(__fastcall* tGetOfferSuccessChance)(void* __this);
+    // Declaration of the original function pointer
+    extern tGetOfferSuccessChance oGetOfferSuccessChance;
+    // Hook function declaration
+    float __fastcall hkGetOfferSuccessChance(void* __this);
+
+
 
 }

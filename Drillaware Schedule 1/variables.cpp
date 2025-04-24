@@ -22,4 +22,5 @@ namespace variables
 	//NPC
 	bool bAlwaysAcceptSample = false;
 	bool bOffersNeverExpire = false;
+	bool bAlwaysAcceptOffer = false;
 }

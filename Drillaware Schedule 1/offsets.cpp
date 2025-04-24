@@ -34,6 +34,7 @@ namespace offsets {
     {
         uintptr_t IsCurrentlyActiveWithTolerance = 0x69DDE0; // ScheduleOne_Law_CurfewManager$$get_IsCurrentlyActiveWithTolerance proc near
         uintptr_t GetSampleSuccess = 0x6F54F0; // ScheduleOne_Economy_Customer$$GetSampleSuccess proc near
+        uintptr_t GetOfferSuccessChance = 0x6F45C0; // ScheduleOne_Economy_Customer$$GetOfferSuccessChance proc near
     }
 }
 namespace pointer {

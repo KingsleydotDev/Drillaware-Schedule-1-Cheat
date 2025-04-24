@@ -38,6 +38,9 @@ namespace hooks {
     tGetFieldOfView oGetFieldOfView = nullptr;
     // Hook function
     float __fastcall hkGetFieldOfView(void* __this) {
+        if (oGetFieldOfView) {
+            oGetFieldOfView( __this);
+        }
         return variables::fFieldOfView;
     }
 
@@ -132,6 +135,16 @@ namespace hooks {
     // Hook function definition
     float __fastcall hkGetSampleSuccess(void* __this) {
         return 1.0f;
+    }
+
+    //GetOfferSuccessChance
+    // Initialize the original function pointer to nullptr
+    tGetOfferSuccessChance oGetOfferSuccessChance = nullptr;
+    // Hook function definition
+    float __fastcall hkGetOfferSuccessChance(void* __this) {
+        if (oGetOfferSuccessChance)
+            oGetOfferSuccessChance(__this); // call the original function to maintain the function
+        return 1.0f; // return 100% chance
     }
 
 }

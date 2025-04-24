@@ -181,6 +181,16 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::GetSampleSuccess));
 					}
+				if (ImGui::Checkbox("Always Accept Order", &variables::bAlwaysAcceptOffer))
+					if (&variables::bAlwaysAcceptOffer)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::npc::GetOfferSuccessChance), &hooks::hkGetOfferSuccessChance, (LPVOID*)&hooks::oGetOfferSuccessChance);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::npc::GetOfferSuccessChance));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::GetOfferSuccessChance));
+					}
 				ImGui::EndTabItem();
 			}
 

@@ -23,4 +23,5 @@ namespace variables
 	//NPC
 	extern bool bAlwaysAcceptSample;
 	extern bool bOffersNeverExpire;
+	extern bool bAlwaysAcceptOffer;
 }
