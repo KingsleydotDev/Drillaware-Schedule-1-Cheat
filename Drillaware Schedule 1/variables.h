@@ -18,4 +18,5 @@ namespace variables
 
 	//world 
 	extern bool bSkateboardJump;
+	extern bool bNoCurfew;
 }

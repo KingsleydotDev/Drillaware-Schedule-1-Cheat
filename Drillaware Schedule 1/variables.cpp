@@ -17,4 +17,5 @@ namespace variables
 
 	//world 
 	bool bSkateboardJump = false;
+	bool bNoCurfew = false;
 }

@@ -159,6 +159,19 @@ void RenderMenu()
 					}
 				ImGui::EndTabItem();
 			}
+			if (ImGui::BeginTabItem("NPC"))
+			{
+				if (ImGui::Checkbox("No Curfew", &variables::bNoCurfew))
+					if (&variables::bNoCurfew)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance), &hooks::hkIsCurrentlyActiveWithTolerance, (LPVOID*)&hooks::oIsCurrentlyActiveWithTolerance);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
+					}
+			}
 
 			if (ImGui::BeginTabItem("Credits")) {
 				ImGui::Text("xevss.");

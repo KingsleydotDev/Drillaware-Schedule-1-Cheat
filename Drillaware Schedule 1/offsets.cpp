@@ -30,6 +30,10 @@ namespace offsets {
     {
         uintptr_t SkateboardIsGrounded = 0xA63020; //ScheduleOne_Skating_Skateboard$$IsGrounded proc near
     }
+    namespace npc
+    {
+        uintptr_t IsCurrentlyActiveWithTolerance = 0x69DDE0; // ScheduleOne_Law_CurfewManager$$get_IsCurrentlyActiveWithTolerance proc near
+    }
 }
 namespace pointer {
     uintptr_t MaxMixQuantity = 0x294;

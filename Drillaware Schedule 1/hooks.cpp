@@ -125,9 +125,17 @@ namespace hooks {
     tSkateboardIsGrounded oSkateboardIsGrounded = nullptr;
 
     // Hooked version of SkateboardIsGrounded
-    // Forces return value to false, making the player invulnerable
+    // Forces return value to true, making the skateboard glide
     bool __fastcall hkSkateboardIsGrounded(void* __this) {
         return true;
+    }
+
+    // Initialize the original function pointer to nullptr
+    tIsCurrentlyActiveWithTolerance oIsCurrentlyActiveWithTolerance = nullptr;
+
+    // Hooked version of IsCurrentlyActiveWithTolerance
+    bool __fastcall hkIsCurrentlyActiveWithTolerance(void* __this) {
+        return false; // set to false so people thaink it's not curfew
     }
 
 }

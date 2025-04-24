@@ -48,6 +48,10 @@ namespace offsets {
     }
     namespace world
     {
-        extern uintptr_t SkateboardIsGrounded;
+        extern uintptr_t SkateboardIsGrounded;//ScheduleOne_Skating_Skateboard$$IsGrounded proc near
+    }
+    namespace npc
+    {
+        extern uintptr_t IsCurrentlyActiveWithTolerance; // ScheduleOne_Law_CurfewManager$$get_IsCurrentlyActiveWithTolerance proc near
     }
 }    
