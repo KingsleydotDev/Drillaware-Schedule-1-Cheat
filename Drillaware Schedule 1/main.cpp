@@ -51,16 +51,18 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
 					}
-				if (ImGui::Checkbox("Field Of View (broken)", &variables::bCustomFieldOfView))
+				if (ImGui::Checkbox("Field Of View", &variables::bCustomFieldOfView))
 					if (variables::bCustomFieldOfView)
 					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov), &hooks::hkSetFov, (LPVOID*)&hooks::oSetFov);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov));
 
 					}
 					if (variables::bCustomFieldOfView)
 						ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 120.0f);
 					else
 					{
-
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov));
 					}
 
 				ImGui::EndTabItem();

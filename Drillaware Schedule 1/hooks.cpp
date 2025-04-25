@@ -11,6 +11,18 @@ namespace hooks {
         return variables::iTrashGrabberCapacityAmount;
     }
 
+    // Define the original function pointer
+    tSetFov oSetFov = nullptr;
+    // Hooked function
+    void __fastcall hkSetFov(void* CameraMain, float fov)
+    {
+        // Example: force FOV to 120 regardless of input
+        float newFov = variables::fFieldOfView;
+
+        // You can add logic here to conditionally change FOV if needed
+        oSetFov(CameraMain, newFov);
+    }
+
     // Player
     // 
     // Initialize the original function pointer to nullptr

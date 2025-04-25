@@ -42,6 +42,8 @@ namespace offsets {
         extern uintptr_t BeginBodySearch_Networked; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
         //offset for PunchController
         extern uintptr_t PunchControllerUpdate; //ScheduleOne_Combat_PunchController$$Update proc near
+        //offset for SetFov
+        extern uintptr_t SetFov;
     }
     namespace equippable {
         // QoL

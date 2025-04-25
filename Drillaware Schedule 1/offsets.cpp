@@ -10,10 +10,8 @@ namespace offsets {
     namespace localplayer {
         uintptr_t CanTakeDamage = 0x6BE170; // ScheduleOne_PlayerScripts_Health_PlayerHealth$$get_CanTakeDamage proc near
         uintptr_t TakeDamage = 0x6BD560; // ScheduleOne_PlayerScripts_Health_PlayerHealth$$RpcWriter___Observers_TakeDamage_3505310624 proc near
-        uintptr_t CameraGetFieldOfView = 0x29870E0; // UnityEngine_Camera$$get_fieldOfView proc near
         uintptr_t GetStackLimit = 0x8527B0; // ScheduleOne_ItemFramework_ItemInstance$$get_StackLimit proc near
-        uintptr_t SetStamina = 0x6C6670; // ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc near
-        uintptr_t CameraSetFieldOfView = 0x2987C93; // UnityEngine_Camera$$set_fieldOfView proc near
+        uintptr_t SetStamina = 0x6C6670; // ScheduleOne_PlayerScripts_PlayerMovement$$SetStamina proc nea
         uintptr_t UpdateArrest = 0x62DAD0; // ScheduleOne.NPCs.Behaviour.PursuitBehaviour$$UpdateArrest proc near
         uintptr_t UpdateSearch = 0x609A90; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$UpdateSearch proc near
         uintptr_t AssignTarget = 0x606E60; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$AssignTarget proc near
@@ -22,6 +20,7 @@ namespace offsets {
         uintptr_t BeginBodySearch_LocalPlayer = 0x57B940; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
         uintptr_t BeginBodySearch_Networked = 0x57B9C0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
         uintptr_t PunchControllerUpdate = 0x76F220; //ScheduleOne_Combat_PunchController$$Update proc near
+        uintptr_t SetFov = 0x2987CA0; //UnityEngine_Camera$$set_fieldOfView proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near

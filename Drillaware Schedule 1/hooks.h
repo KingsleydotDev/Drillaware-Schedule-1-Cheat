@@ -12,6 +12,14 @@ namespace hooks {
     // Hook function declaration
     int __fastcall hkGetCapacity(void* __this);
 
+    //SetFov
+    // Typedef for SetFov function
+    typedef void(__fastcall* tSetFov)(void* CameraMain, float fov);
+
+    // Declare the original and hooked function
+    extern tSetFov oSetFov;
+    void __fastcall hkSetFov(void* CameraMain, float fov);
+
     // Player
     // 
     // CanTakeDamage
