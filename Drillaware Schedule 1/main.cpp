@@ -46,11 +46,23 @@ void RenderMenu()
 						MH_EnableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
 					}
 					if (variables::bBetterTrashGrabber)
-					ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 100, 9999);
+						ImGui::SliderInt("Max Capacity", &variables::iTrashGrabberCapacityAmount, 100, 9999);
 					else
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::equippable::TrashGrabberGetCapacity));
 					}
+				if (ImGui::Checkbox("Field Of View (broken)", &variables::bCustomFieldOfView))
+					if (variables::bCustomFieldOfView)
+					{
+
+					}
+					if (variables::bCustomFieldOfView)
+						ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 120.0f);
+					else
+					{
+
+					}
+
 				ImGui::EndTabItem();
 			}
 
@@ -68,22 +80,6 @@ void RenderMenu()
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CanTakeDamage));
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::TakeDamage));
 					}
-				if (ImGui::Checkbox("Field Of View (broken)", &variables::bCustomFieldOfView))
-					if (variables::bCustomFieldOfView)
-					{
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView), &hooks::hkGetFieldOfView, (LPVOID*)&hooks::oGetFieldOfView);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView), &hooks::hkSetFieldOfView, (LPVOID*)&hooks::oSetFieldOfView);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
-					}
-					if (variables::bCustomFieldOfView)
-					ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 140.0f);
-					else
-					{
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraGetFieldOfView));
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::CameraSetFieldOfView));
-					}
-
 				if (ImGui::Checkbox("Increase Stack Size", &variables::bMaxStack))
 					if (variables::bMaxStack)
 					{

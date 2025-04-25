@@ -33,25 +33,6 @@ namespace hooks {
         // Unlimited stamina: do nothing
     }
 
-    // hooked version of GetFieldOfView
-    // Define the original function pointer
-    tGetFieldOfView oGetFieldOfView = nullptr;
-    // Hook function
-    float __fastcall hkGetFieldOfView(void* __this) {
-        if (oGetFieldOfView) {
-            oGetFieldOfView( __this);
-        }
-        return variables::fFieldOfView;
-    }
-
-    // hooked version of SetFieldOfView
-    // Define the original function pointer
-    tSetFieldOfView oSetFieldOfView = nullptr;
-    // Hook function
-    float __fastcall hkSetFieldOfView(void* __this) {
-        return variables::fFieldOfView;
-    }
-
     // hooked version ofItem instance get stack limit
     // Define the original function pointer
     tGetStackLimit oGetStackLimit = nullptr;

@@ -30,22 +30,6 @@ namespace hooks {
     // Hook function declaration
     void __fastcall hkTakeDamage(void* __this, void* damageInfo);
 
-    // GetFieldOfView
-    // Correct typedef for a __fastcall function that returns float
-    typedef float(__fastcall* tGetFieldOfView)(void* __this);
-    // Declare the original function pointer
-    extern tGetFieldOfView oGetFieldOfView;
-    // Hook function declaration
-    float __fastcall hkGetFieldOfView(void* __this);
-     
-    // SetFieldOfView
-    // Correct typedef for a __fastcall function that returns float
-    typedef float(__fastcall* tSetFieldOfView)(void* __this);
-    // Declare the original function pointer
-    extern tSetFieldOfView oSetFieldOfView;
-    // Hook function declaration
-    float __fastcall hkSetFieldOfView(void* __this);
-
     // GetStackLimit
     typedef float(__fastcall* tGetStackLimit)(void* __this);
     // Declare the original function pointer
