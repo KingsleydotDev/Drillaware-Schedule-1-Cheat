@@ -25,6 +25,7 @@ namespace variables
 	//world 
 	bool bSkateboardJump = false;
 	bool bNoCurfew = false;
+	bool bInstantOven = false;
 
 	//NPC
 	bool bAlwaysAcceptSample = false;

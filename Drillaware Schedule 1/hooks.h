@@ -12,13 +12,13 @@ namespace hooks {
     // Hook function declaration
     int __fastcall hkGetCapacity(void* __this);
 
-    //SetFov
-    // Typedef for SetFov function
-    typedef void(__fastcall* tSetFov)(void* CameraMain, float fov);
+    //SetfieldOfView
+    // Typedef for SetfieldOfView function
+    typedef void(__fastcall* tSetfieldOfView)(void* CameraMain, float fov);
 
     // Declare the original and hooked function
-    extern tSetFov oSetFov;
-    void __fastcall hkSetFov(void* CameraMain, float fov);
+    extern tSetfieldOfView oSetfieldOfView;
+    void __fastcall hkSetfieldOfView(void* CameraMain, float fov);
 
     // Player
     // 
@@ -104,6 +104,19 @@ namespace hooks {
     extern tSkateboardIsGrounded oSkateboardIsGrounded;
     // Hooked version of SkateboardIsGrounded — always returns true bhop
     bool __fastcall hkSkateboardIsGrounded(void* __this);
+
+    //instant oven
+    // Typedefs
+    typedef void(__fastcall* tGetCookDuration)(void* __this);
+    typedef void(__fastcall* tOvenIsReady)(void* __this);
+
+    // Hooked Function Declarations
+    int __fastcall hkGetCookDuration(void* __this);
+    bool __fastcall hkOvenIsReady(void* __this);
+
+    // Original Function Pointers
+    extern tGetCookDuration oGetCookDuration;
+    extern tOvenIsReady oOvenIsReady;
 
 
     //NPC 

@@ -54,15 +54,15 @@ void RenderMenu()
 				if (ImGui::Checkbox("Field Of View", &variables::bCustomFieldOfView))
 					if (variables::bCustomFieldOfView)
 					{
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov), &hooks::hkSetFov, (LPVOID*)&hooks::oSetFov);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SetfieldOfView), &hooks::hkSetfieldOfView, (LPVOID*)&hooks::oSetfieldOfView);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetfieldOfView));
 
 					}
 					if (variables::bCustomFieldOfView)
 						ImGui::SliderFloat("Field Of View", &variables::fFieldOfView, 60.0f, 120.0f);
 					else
 					{
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetFov));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetfieldOfView));
 					}
 
 				ImGui::EndTabItem();
@@ -153,7 +153,6 @@ void RenderMenu()
 				ImGui::EndTabItem();
 			}
 
-
 			if (ImGui::BeginTabItem("World")) {
 				if (ImGui::Checkbox("Skateboard Glider", &variables::bSkateboardJump))
 					if (&variables::bSkateboardJump)
@@ -175,8 +174,22 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
 					}
+				if (ImGui::Checkbox("Instant Oven", &variables::bInstantOven))
+					if (&variables::bInstantOven)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration), &hooks::hkGetCookDuration, (LPVOID*)&hooks::oGetCookDuration);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady), &hooks::hkOvenIsReady, (LPVOID*)&hooks::oOvenIsReady);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
+					}
 				ImGui::EndTabItem();
 			}
+
 			if (ImGui::BeginTabItem("NPC"))
 			{
 				if (ImGui::Checkbox("Always Accept Sample", &variables::bAlwaysAcceptSample))

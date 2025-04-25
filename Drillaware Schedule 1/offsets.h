@@ -42,8 +42,8 @@ namespace offsets {
         extern uintptr_t BeginBodySearch_Networked; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
         //offset for PunchController
         extern uintptr_t PunchControllerUpdate; //ScheduleOne_Combat_PunchController$$Update proc near
-        //offset for SetFov
-        extern uintptr_t SetFov;
+        //offset for SetfieldOfView
+        extern uintptr_t SetfieldOfView;
     }
     namespace equippable {
         // QoL
@@ -53,6 +53,8 @@ namespace offsets {
     namespace world
     {
         extern uintptr_t SkateboardIsGrounded;//ScheduleOne_Skating_Skateboard$$IsGrounded proc near
+        extern uintptr_t GetCookDuration; // ScheduleOne.ObjectScripts.OvenCookOperation$$GetCookDuration
+        extern uintptr_t OvenIsReady;
     }
     namespace npc
     {

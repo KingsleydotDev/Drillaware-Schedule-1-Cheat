@@ -12,15 +12,14 @@ namespace hooks {
     }
 
     // Define the original function pointer
-    tSetFov oSetFov = nullptr;
+    tSetfieldOfView oSetfieldOfView = nullptr;
     // Hooked function
-    void __fastcall hkSetFov(void* CameraMain, float fov)
+    void __fastcall hkSetfieldOfView(void* CameraMain, float fov)
     {
-        // Example: force FOV to 120 regardless of input
         float newFov = variables::fFieldOfView;
 
         // You can add logic here to conditionally change FOV if needed
-        oSetFov(CameraMain, newFov);
+        oSetfieldOfView(CameraMain, newFov);
     }
 
     // Player
@@ -137,6 +136,19 @@ namespace hooks {
     // Forces return value to true, making the skateboard glide
     bool __fastcall hkSkateboardIsGrounded(void* __this) {
         return true;
+    }
+
+    // Initialize original function pointers to nullptr
+    tGetCookDuration oGetCookDuration = nullptr;
+    tOvenIsReady oOvenIsReady = nullptr;
+
+    // Hook implementations
+    int __fastcall hkGetCookDuration(void* __this) {
+        return 0; // Instant cook duration
+    }
+
+    bool __fastcall hkOvenIsReady(void* __this) {
+        return true; // Always ready
     }
 
     //NPC

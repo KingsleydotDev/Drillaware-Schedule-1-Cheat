@@ -20,7 +20,7 @@ namespace offsets {
         uintptr_t BeginBodySearch_LocalPlayer = 0x57B940; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
         uintptr_t BeginBodySearch_Networked = 0x57B9C0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
         uintptr_t PunchControllerUpdate = 0x76F220; //ScheduleOne_Combat_PunchController$$Update proc near
-        uintptr_t SetFov = 0x2987CA0; //UnityEngine_Camera$$set_fieldOfView proc near
+        uintptr_t SetfieldOfView = 0x2987CA0; //UnityEngine_Camera$$set_fieldOfView proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
@@ -29,6 +29,8 @@ namespace offsets {
     namespace world
     {
         uintptr_t SkateboardIsGrounded = 0xA63020; //ScheduleOne_Skating_Skateboard$$IsGrounded proc near
+        uintptr_t GetCookDuration = 0x99F590; // ScheduleOne.ObjectScripts.OvenCookOperation$$GetCookDuration
+        uintptr_t OvenIsReady = 0x99F7E0; // ScheduleOne.ObjectScripts.OvenCookOperation$$IsReady
     }
     namespace npc
     {
