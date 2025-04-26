@@ -156,6 +156,12 @@ namespace hooks {
         return 5;  // 5 = Jackpot value
     }
 
+    // Define the original function pointer
+    tGetCurrentBetAmount oGetCurrentBetAmount = nullptr;
+    // Hook function that always returns a huge bet
+    int __fastcall hkGetCurrentBetAmount(void* __this) {
+        return variables::iBetAmount;  //bet amount
+    }
     //NPC
     // 
     // Initialize the original function pointer to nullptr

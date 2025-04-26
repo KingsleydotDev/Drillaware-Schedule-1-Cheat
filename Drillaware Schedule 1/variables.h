@@ -26,7 +26,8 @@ namespace variables
 	extern bool bNoCurfew;
 	extern bool bInstantOven;
 	extern bool bAlwaysHitJAckpot;
-	extern bool bInsaneBetAmount;
+	extern bool bCustomBetAmount;
+	extern int iBetAmount;
 
 	//NPC
 	extern bool bAlwaysAcceptSample;

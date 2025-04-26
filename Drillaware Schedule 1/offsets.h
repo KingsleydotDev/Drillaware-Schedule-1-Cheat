@@ -56,7 +56,7 @@ namespace offsets {
         extern uintptr_t GetCookDuration; // ScheduleOne.ObjectScripts.OvenCookOperation$$GetCookDuration
         extern uintptr_t OvenIsReady;
         extern uintptr_t GetRandomSymbol; // ScheduleOne.Casino.SlotMachine$$GetRandomSymbol
-        extern intptr_t GetCurrentBetAmount; // ScheduleOne.Casino.SlotMachine$$get_currentBetAmount
+        extern uintptr_t GetCurrentBetAmount; // ScheduleOne.Casino.SlotMachine$$get_currentBetAmount
     }
     namespace npc
     {

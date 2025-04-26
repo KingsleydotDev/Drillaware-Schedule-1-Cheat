@@ -197,6 +197,16 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetRandomSymbol));
 					}
+				if (ImGui::Checkbox("Custom Bet Amount", &variables::bCustomBetAmount))
+					if (&variables::bCustomBetAmount)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount), &hooks::hkGetCurrentBetAmount, (LPVOID*)&hooks::oGetCurrentBetAmount);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
+					}
 				ImGui::EndTabItem();
 			}
 

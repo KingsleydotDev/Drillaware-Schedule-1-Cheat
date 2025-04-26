@@ -126,6 +126,14 @@ namespace hooks {
     // Declaration of the hook function
     int __fastcall hkGetRandomSymbol(void* __this);
 
+    //bet amount
+    // Typedef for the original bet amount function
+    typedef int(__fastcall* tGetCurrentBetAmount)(void* __this);
+    // Declaration of the original function pointer
+    extern tGetCurrentBetAmount oGetCurrentBetAmount;
+    // Declaration of the hook function
+    int __fastcall hkGetCurrentBetAmount(void* __this);
+
 
     //NPC 
     // 

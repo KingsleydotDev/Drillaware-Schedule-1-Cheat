@@ -27,7 +27,8 @@ namespace variables
 	bool bNoCurfew = false;
 	bool bInstantOven = false;
 	bool bAlwaysHitJAckpot = false;
-	bool bInsaneBetAmount = false;
+	bool bCustomBetAmount = false;
+	int iBetAmount = 500;
 
 	//NPC
 	bool bAlwaysAcceptSample = false;
