@@ -187,6 +187,16 @@ void RenderMenu()
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
 					}
+				if (ImGui::Checkbox("Always Hit Jackpot", &variables::bAlwaysHitJAckpot))
+					if (&variables::bAlwaysHitJAckpot)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetRandomSymbol), &hooks::hkGetRandomSymbol, (LPVOID*)&hooks::oGetRandomSymbol);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetRandomSymbol));
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetRandomSymbol));
+					}
 				ImGui::EndTabItem();
 			}
 

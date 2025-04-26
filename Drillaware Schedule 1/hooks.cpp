@@ -141,14 +141,19 @@ namespace hooks {
     // Initialize original function pointers to nullptr
     tGetCookDuration oGetCookDuration = nullptr;
     tOvenIsReady oOvenIsReady = nullptr;
-
     // Hook implementations
     int __fastcall hkGetCookDuration(void* __this) {
         return 0; // Instant cook duration
     }
-
     bool __fastcall hkOvenIsReady(void* __this) {
         return true; // Always ready
+    }
+
+    // Define the original function pointer
+    tGetRandomSymbol oGetRandomSymbol = nullptr;
+    // Hook function that always returns jackpot
+    int __fastcall hkGetRandomSymbol(void* __this) {
+        return 5;  // 5 = Jackpot value
     }
 
     //NPC

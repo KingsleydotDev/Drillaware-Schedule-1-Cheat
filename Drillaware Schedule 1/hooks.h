@@ -118,6 +118,14 @@ namespace hooks {
     extern tGetCookDuration oGetCookDuration;
     extern tOvenIsReady oOvenIsReady;
 
+    // always hit jackpot
+    // Typedef for the original function
+    typedef int(__fastcall* tGetRandomSymbol)(void* __this);
+    // Declaration of the original function pointer
+    extern tGetRandomSymbol oGetRandomSymbol;
+    // Declaration of the hook function
+    int __fastcall hkGetRandomSymbol(void* __this);
+
 
     //NPC 
     // 

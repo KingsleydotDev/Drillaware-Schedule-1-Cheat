@@ -26,6 +26,8 @@ namespace variables
 	bool bSkateboardJump = false;
 	bool bNoCurfew = false;
 	bool bInstantOven = false;
+	bool bAlwaysHitJAckpot = false;
+	bool bInsaneBetAmount = false;
 
 	//NPC
 	bool bAlwaysAcceptSample = false;
