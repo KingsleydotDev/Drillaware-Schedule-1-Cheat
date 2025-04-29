@@ -21,6 +21,11 @@ namespace variables
 	extern float foriginalMaxDamage;
 	extern bool bOneHitPunchStored;
 
+	extern bool bMovementPatchesEnabled;
+	extern bool bInfiniteJumpEnabled;
+	extern float fMoveSpeedMultiplierValue;
+	extern float fJumpForceValue;
+
 	//world 
 	extern bool bSkateboardJump;
 	extern bool bNoCurfew;

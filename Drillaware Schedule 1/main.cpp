@@ -149,6 +149,22 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::PunchControllerUpdate));
 					}
+				if (ImGui::Checkbox("Movement Modifiers", &variables::bMovementPatchesEnabled))
+					if (variables::bMovementPatchesEnabled)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::PlayerMovementUpdate), &hooks::hkPlayerMovementUpdate, (LPVOID*)&hooks::oPlayerMovementUpdate);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::PlayerMovementUpdate));
+					}
+					if (variables::bMovementPatchesEnabled)
+					{
+						ImGui::SliderFloat("Speed Multiplier", &variables::fMoveSpeedMultiplierValue, 1.0f, 10.0f);
+						ImGui::SliderFloat("Jump Force", &variables::fJumpForceValue, 5.25f, 30.0f);
+						ImGui::Checkbox("Infinite Jumps", &variables::bInfiniteJumpEnabled);
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::PlayerMovementUpdate));
+					}
 
 				ImGui::EndTabItem();
 			}

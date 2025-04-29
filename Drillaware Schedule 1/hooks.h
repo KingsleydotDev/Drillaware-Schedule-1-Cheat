@@ -94,6 +94,13 @@ namespace hooks {
     // Hook function declaration
     void __fastcall hkPunchControllerUpdate(void* __this);
 
+    // Function typedef for the hook
+    typedef void(__fastcall* tPlayerMovementUpdate)(void* __this);
+    // Declaration of original function pointer
+    extern tPlayerMovementUpdate oPlayerMovementUpdate;
+    // Hook function declaration
+    void __fastcall hkPlayerMovementUpdate(void* __this);
+
 
     // world
     // 

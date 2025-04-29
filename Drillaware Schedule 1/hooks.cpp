@@ -128,6 +128,23 @@ namespace hooks {
         }
     }
 
+    // Definition of original function pointer
+    tPlayerMovementUpdate oPlayerMovementUpdate = nullptr;
+    void __fastcall hkPlayerMovementUpdate(void* __this) {
+        if (__this) {
+            if (variables::bInfiniteJumpEnabled) {
+                *(bool*)((uintptr_t)__this + pointer::IsGrounded) = true; // IsGrounded
+            }
+            *(float*)((uintptr_t)__this + pointer::MoveSpeedMultiplier) = variables::fMoveSpeedMultiplierValue; // MoveSpeedMultiplier
+            *(float*)((uintptr_t)__this + pointer::jumpForce) = variables::fJumpForceValue; // jumpForce
+        }
+
+        // Call the original function
+        if (oPlayerMovementUpdate) {
+            oPlayerMovementUpdate(__this);
+        }
+    }
+
 
     // world 
     // Initialize the original function pointer to nullptr

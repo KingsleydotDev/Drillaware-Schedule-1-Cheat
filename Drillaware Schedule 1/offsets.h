@@ -44,6 +44,8 @@ namespace offsets {
         extern uintptr_t PunchControllerUpdate; //ScheduleOne_Combat_PunchController$$Update proc near
         //offset for SetfieldOfView
         extern uintptr_t SetfieldOfView;
+        
+        extern uintptr_t PlayerMovementUpdate;
     }
     namespace equippable {
         // QoL
@@ -75,4 +77,7 @@ namespace pointer {
     extern uintptr_t minsUntilDeaddropReady;
     extern uintptr_t MinPunchDamage;            // ScheduleOne.Combat.PunchController
     extern uintptr_t MaxPunchDamage;            // ScheduleOne.Combat.PunchController
+    extern uintptr_t jumpForce;                 // ScheduleOne.PlayerScripts.PlayerMovement
+    extern uintptr_t MoveSpeedMultiplier;       // ScheduleOne.PlayerScripts.PlayerMovement
+    extern uintptr_t IsGrounded;
 }

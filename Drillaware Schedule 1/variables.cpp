@@ -20,6 +20,11 @@ namespace variables
 	float foriginalMaxDamage = 0.0f;
 	bool bOneHitPunchStored = false;
 
+	bool bMovementPatchesEnabled = false;
+	bool bInfiniteJumpEnabled = false;
+	float fMoveSpeedMultiplierValue = 1.0f;
+	float fJumpForceValue = 5.25f;
+
 
 
 	//world 

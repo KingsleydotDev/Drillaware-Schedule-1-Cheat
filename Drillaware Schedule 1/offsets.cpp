@@ -21,6 +21,7 @@ namespace offsets {
         uintptr_t BeginBodySearch_Networked = 0x57B9C0; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_Networked proc near
         uintptr_t PunchControllerUpdate = 0x76F220; //ScheduleOne_Combat_PunchController$$Update proc near
         uintptr_t SetfieldOfView = 0x2987CA0; //UnityEngine_Camera$$set_fieldOfView proc near
+        uintptr_t PlayerMovementUpdate = 0x6C78C0; // ScheduleOne.PlayerScripts.PlayerMovement$$Update
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
@@ -51,4 +52,7 @@ namespace pointer {
     uintptr_t minsUntilDeaddropReady = 0x340;
     uintptr_t MinPunchDamage = 0x30;            // ScheduleOne.Combat.PunchController
     uintptr_t MaxPunchDamage = 0x34;            // ScheduleOne.Combat.PunchController
+    uintptr_t jumpForce = 0x44;                 // ScheduleOne.PlayerScripts.PlayerMovement
+    uintptr_t MoveSpeedMultiplier = 0x3C;       // ScheduleOne.PlayerScripts.PlayerMovement
+    uintptr_t IsGrounded = 0xBC;               // <IsGrounded>k__BackingField
 }
