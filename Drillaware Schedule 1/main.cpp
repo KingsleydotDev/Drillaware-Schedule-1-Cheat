@@ -34,7 +34,7 @@ bool init = false;
 void RenderMenu()
 {
 	ImGui::SetNextWindowSize(ImVec2(550, 400), ImGuiCond_Always);
-	ImGui::Begin("Drillaware Schedule 1 Cheat by KingsleydotDev");
+	ImGui::Begin("Drillaware Schedule 1");
 	{
 		if (ImGui::BeginTabBar("MainTabBar")) {
 			if (ImGui::BeginTabItem("QoL")) {
@@ -254,6 +254,7 @@ void RenderMenu()
 			if (ImGui::BeginTabItem("Credits")) {
 				ImGui::Text("xevss.");
 				ImGui::Text("yousef029");
+				ImGui::Text("by KingsleydotDev.");
 				ImGui::EndTabItem();
 			}
 
