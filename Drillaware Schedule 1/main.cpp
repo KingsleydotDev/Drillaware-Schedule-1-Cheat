@@ -221,11 +221,23 @@ void RenderMenu()
 						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount), &hooks::hkGetCurrentBetAmount, (LPVOID*)&hooks::oGetCurrentBetAmount);
 						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
 					}
-				if (&variables::bCustomBetAmount)
+				if (variables::bCustomBetAmount)
 					ImGui::SliderInt("Bet Amount", &variables::iBetAmount, 100, 10000);
 					else
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
+					}
+				if (ImGui::Checkbox("Custom Grow Speed", &variables::bBetterGrowTimes))
+					if (&variables::bBetterGrowTimes)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier), &hooks::hkGetAdditiveGrowthMultiplier, (LPVOID*)&hooks::oGetAdditiveGrowthMultiplier);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
+					}
+				if (variables::bBetterGrowTimes)
+					ImGui::SliderFloat("Growth Multiplier", &variables::fGrowMultiplier, 1.0f, 10.0f);
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
 					}
 				ImGui::EndTabItem();
 			}

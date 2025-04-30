@@ -141,6 +141,13 @@ namespace hooks {
     // Declaration of the hook function
     int __fastcall hkGetCurrentBetAmount(void* __this);
 
+    // Function typedef for GetAdditiveGrowthMultiplier
+    typedef float(__cdecl* tGetAdditiveGrowthMultiplier)(void* __this, void* method);
+    // Declaration of original function pointer
+    extern tGetAdditiveGrowthMultiplier oGetAdditiveGrowthMultiplier;
+    // Hook function declaration
+    float __cdecl hkGetAdditiveGrowthMultiplier(void* __this, void* method);
+
 
     //NPC 
     // 

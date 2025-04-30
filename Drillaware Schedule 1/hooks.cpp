@@ -179,6 +179,14 @@ namespace hooks {
     int __fastcall hkGetCurrentBetAmount(void* __this) {
         return variables::iBetAmount;  //bet amount
     }
+
+    // Definition of original function pointer
+    tGetAdditiveGrowthMultiplier oGetAdditiveGrowthMultiplier = nullptr;
+    // Hook function definition
+    float __cdecl hkGetAdditiveGrowthMultiplier(void* __this, void* method) {
+        return variables::fGrowMultiplier; 
+    }
+
     //NPC
     // 
     // Initialize the original function pointer to nullptr

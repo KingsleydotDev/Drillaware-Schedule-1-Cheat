@@ -34,6 +34,7 @@ namespace offsets {
         uintptr_t OvenIsReady = 0x99F7E0; // ScheduleOne.ObjectScripts.OvenCookOperation$$IsReady proc near
         uintptr_t GetRandomSymbol = 0x7881A0; // ScheduleOne.Casino.SlotMachine$$GetRandomSymbol proc near
         uintptr_t GetCurrentBetAmount = 0x78A3C0; // ScheduleOne.Casino.SlotMachine$$get_currentBetAmount proc near
+        uintptr_t GetAdditiveGrowthMultiplier = 0x95B900; // ScheduleOne.ObjectScripts.Pot$$GetAdditiveGrowthMultiplier
     }
     namespace npc
     {

@@ -33,6 +33,8 @@ namespace variables
 	extern bool bAlwaysHitJAckpot;
 	extern bool bCustomBetAmount;
 	extern int iBetAmount;
+	extern bool bBetterGrowTimes;
+	extern float fGrowMultiplier;
 
 	//NPC
 	extern bool bAlwaysAcceptSample;

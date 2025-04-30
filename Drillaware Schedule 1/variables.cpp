@@ -34,6 +34,8 @@ namespace variables
 	bool bAlwaysHitJAckpot = false;
 	bool bCustomBetAmount = false;
 	int iBetAmount = 500;
+	bool bBetterGrowTimes = false;
+	float fGrowMultiplier = 1.0f;
 
 	//NPC
 	bool bAlwaysAcceptSample = false;
