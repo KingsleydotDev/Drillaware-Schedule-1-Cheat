@@ -16,6 +16,7 @@ void InitImGui()
 	io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 	ImGui_ImplWin32_Init(window);
 	ImGui_ImplDX11_Init(pDevice, pContext);
+	
 }
 
 LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
@@ -33,6 +34,7 @@ bool init = false;
 
 void RenderMenu()
 {
+	ImGui::StyleColorsDark();
 	ImGui::SetNextWindowSize(ImVec2(550, 400), ImGuiCond_Always);
 	ImGui::Begin("Drillaware Schedule 1");
 	{
@@ -219,6 +221,8 @@ void RenderMenu()
 						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount), &hooks::hkGetCurrentBetAmount, (LPVOID*)&hooks::oGetCurrentBetAmount);
 						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
 					}
+				if (&variables::bCustomBetAmount)
+					ImGui::SliderInt("Bet Amount", &variables::iBetAmount, 100, 10000);
 					else
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
