@@ -22,6 +22,7 @@ namespace offsets {
         uintptr_t PunchControllerUpdate = 0x76F220; //ScheduleOne_Combat_PunchController$$Update proc near
         uintptr_t SetfieldOfView = 0x2987CA0; //UnityEngine_Camera$$set_fieldOfView proc near
         uintptr_t PlayerMovementUpdate = 0x6C78C0; // ScheduleOne.PlayerScripts.PlayerMovement$$Update
+        uintptr_t SkatingSkateboardUpdate = 0xA64BE0; // ScheduleOne_Skating_Skateboard$$Update proc near
     }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
@@ -41,6 +42,7 @@ namespace offsets {
         uintptr_t IsCurrentlyActiveWithTolerance = 0x69DDE0; // ScheduleOne_Law_CurfewManager$$get_IsCurrentlyActiveWithTolerance proc near
         uintptr_t GetSampleSuccess = 0x6F54F0; // ScheduleOne_Economy_Customer$$GetSampleSuccess proc near
         uintptr_t GetOfferSuccessChance = 0x6F45C0; // ScheduleOne_Economy_Customer$$GetOfferSuccessChance proc near
+
     }
 }
 namespace pointer {
@@ -56,4 +58,8 @@ namespace pointer {
     uintptr_t jumpForce = 0x44;                 // ScheduleOne.PlayerScripts.PlayerMovement
     uintptr_t MoveSpeedMultiplier = 0x3C;       // ScheduleOne.PlayerScripts.PlayerMovement
     uintptr_t IsGrounded = 0xBC;               // <IsGrounded>k__BackingField
+    uintptr_t JumpForceSkating = 0x1D0;
+    uintptr_t PushForceMultiplierSkating = 0x218;
+    uintptr_t TopSpeed_KmhSkating = 0x214;
+
 }

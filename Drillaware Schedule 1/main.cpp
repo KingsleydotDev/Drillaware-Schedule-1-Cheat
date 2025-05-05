@@ -66,6 +66,33 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SetfieldOfView));
 					}
+					if (ImGui::Checkbox("Custom Grow Speed", &variables::bBetterGrowTimes))
+						if (&variables::bBetterGrowTimes)
+						{
+							MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier), &hooks::hkGetAdditiveGrowthMultiplier, (LPVOID*)&hooks::oGetAdditiveGrowthMultiplier);
+							MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
+						}
+					if (variables::bBetterGrowTimes)
+						ImGui::SliderFloat("Growth Multiplier", &variables::fGrowMultiplier, 1.0f, 10.0f);
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
+					}
+					if (ImGui::Checkbox("Oven Multiplier", &variables::bBetterOvenTimes))
+						if (&variables::bBetterOvenTimes)
+						{
+							MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration), &hooks::hkGetCookDuration, (LPVOID*)&hooks::oGetCookDuration);
+							MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+							MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady), &hooks::hkOvenIsReady, (LPVOID*)&hooks::oOvenIsReady);
+							MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
+						}
+					if (variables::bBetterOvenTimes)
+						ImGui::SliderFloat("Oven Multiplier", &variables::fOvenMultiplier, 1.0f, 10.0f);
+						else
+						{
+							MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+							MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
+						}
 
 				ImGui::EndTabItem();
 			}
@@ -167,6 +194,22 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::PlayerMovementUpdate));
 					}
+				if (ImGui::Checkbox("Skateboard Modifiers", &variables::bSkatingMovementEnabled))
+					if (variables::bSkatingMovementEnabled)
+					{
+						MH_CreateHook((void*)(offsets::GameAssembly + offsets::localplayer::SkatingSkateboardUpdate), &hooks::hkSkatingSkateboardUpdate, (LPVOID*)&hooks::oSkatingSkateboardUpdate);
+						MH_EnableHook((void*)(offsets::GameAssembly + offsets::localplayer::SkatingSkateboardUpdate));
+					}
+					if (variables::bSkatingMovementEnabled)
+					{
+						ImGui::SliderFloat("Push Force Multiplier ", &variables::fPushForceMultiplier, 1.0f, 20.0f);
+						ImGui::SliderFloat("Jump Force", &variables::fJumpForceSkatingValue, 30.0f, 150.0f);
+						ImGui::SliderFloat("Top Speed", &variables::fTopSpeed_Kmh, 50.0f, 200.0f);
+					}
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::localplayer::SkatingSkateboardUpdate));
+					}
 
 				ImGui::EndTabItem();
 			}
@@ -192,19 +235,6 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::npc::IsCurrentlyActiveWithTolerance));
 					}
-				if (ImGui::Checkbox("Instant Oven", &variables::bInstantOven))
-					if (&variables::bInstantOven)
-					{
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration), &hooks::hkGetCookDuration, (LPVOID*)&hooks::oGetCookDuration);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady), &hooks::hkOvenIsReady, (LPVOID*)&hooks::oOvenIsReady);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
-					}
-					else
-					{
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
-					}
 				if (ImGui::Checkbox("Always Hit Jackpot", &variables::bAlwaysHitJAckpot))
 					if (&variables::bAlwaysHitJAckpot)
 					{
@@ -226,18 +256,6 @@ void RenderMenu()
 					else
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCurrentBetAmount));
-					}
-				if (ImGui::Checkbox("Custom Grow Speed", &variables::bBetterGrowTimes))
-					if (&variables::bBetterGrowTimes)
-					{
-						MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier), &hooks::hkGetAdditiveGrowthMultiplier, (LPVOID*)&hooks::oGetAdditiveGrowthMultiplier);
-						MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
-					}
-				if (variables::bBetterGrowTimes)
-					ImGui::SliderFloat("Growth Multiplier", &variables::fGrowMultiplier, 1.0f, 10.0f);
-					else
-					{
-						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
 					}
 				ImGui::EndTabItem();
 			}

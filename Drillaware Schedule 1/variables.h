@@ -7,24 +7,28 @@ namespace variables
 	extern int iTrashGrabberCapacityAmount;
 	extern bool bCustomFieldOfView;
 	extern float fFieldOfView;
+	extern bool bBetterOvenTimes;
+	extern float fOvenMultiplier;
+	extern bool bMaxStack;
 
 
 	// Player
 	extern bool bGodMode;
-	extern bool bMaxStack;
 	extern bool bUnlimitedSstamina;
 	extern bool bDisableBodySearches;
 	extern bool bDisableArrest;
-
 	extern bool bOneHitPunch;
 	extern float foriginalMinDamage;
 	extern float foriginalMaxDamage;
 	extern bool bOneHitPunchStored;
-
 	extern bool bMovementPatchesEnabled;
 	extern bool bInfiniteJumpEnabled;
 	extern float fMoveSpeedMultiplierValue;
 	extern float fJumpForceValue;
+	extern bool bSkatingMovementEnabled;
+	extern float fJumpForceSkatingValue;
+	extern float fTopSpeed_Kmh;
+	extern float fPushForceMultiplier;
 
 	//world 
 	extern bool bSkateboardJump;

@@ -49,7 +49,7 @@ namespace hooks {
     tGetStackLimit oGetStackLimit = nullptr;
     // Hook function
     int __fastcall hkGetStackLimit(void* __this) {
-        return 9999;
+        return 100; // better stack amount 
     }
 
     //Disable body search 
@@ -131,19 +131,32 @@ namespace hooks {
     // Definition of original function pointer
     tPlayerMovementUpdate oPlayerMovementUpdate = nullptr;
     void __fastcall hkPlayerMovementUpdate(void* __this) {
-        if (__this) {
-            if (variables::bInfiniteJumpEnabled) {
-                *(bool*)((uintptr_t)__this + pointer::IsGrounded) = true; // IsGrounded
-            }
-            *(float*)((uintptr_t)__this + pointer::MoveSpeedMultiplier) = variables::fMoveSpeedMultiplierValue; // MoveSpeedMultiplier
-            *(float*)((uintptr_t)__this + pointer::jumpForce) = variables::fJumpForceValue; // jumpForce
+        if (variables::bInfiniteJumpEnabled) {
+            *(bool*)((uintptr_t)__this + pointer::IsGrounded) = true; // IsGrounded
         }
+        *(float*)((uintptr_t)__this + pointer::MoveSpeedMultiplier) = variables::fMoveSpeedMultiplierValue; // MoveSpeedMultiplier
+        *(float*)((uintptr_t)__this + pointer::jumpForce) = variables::fJumpForceValue; // jumpForce
+
 
         // Call the original function
         if (oPlayerMovementUpdate) {
             oPlayerMovementUpdate(__this);
         }
     }
+
+    // Definition of original function pointer
+    tSkatingSkateboardUpdate oSkatingSkateboardUpdate = nullptr;
+    void __fastcall hkSkatingSkateboardUpdate(void* __this) {
+        *(float*)((uintptr_t)__this + pointer::JumpForceSkating) = variables::fJumpForceSkatingValue; // jump force
+        *(float*)((uintptr_t)__this + pointer::PushForceMultiplierSkating) = variables::fPushForceMultiplier; // push force
+        *(float*)((uintptr_t)__this + pointer::TopSpeed_KmhSkating) = variables::fTopSpeed_Kmh; // top speed
+        // Call the original function
+        if (oSkatingSkateboardUpdate) {
+            oSkatingSkateboardUpdate(__this);
+        }
+    }
+
+
 
 
     // world 
@@ -152,6 +165,8 @@ namespace hooks {
     // Hooked version of SkateboardIsGrounded
     // Forces return value to true, making the skateboard glide
     bool __fastcall hkSkateboardIsGrounded(void* __this) {
+        if (oSkateboardIsGrounded)
+            oSkateboardIsGrounded(__this);
         return true;
     }
 
@@ -160,7 +175,7 @@ namespace hooks {
     tOvenIsReady oOvenIsReady = nullptr;
     // Hook implementations
     int __fastcall hkGetCookDuration(void* __this) {
-        return 0; // Instant cook duration
+        return variables::fOvenMultiplier; // better oven times
     }
     bool __fastcall hkOvenIsReady(void* __this) {
         return true; // Always ready

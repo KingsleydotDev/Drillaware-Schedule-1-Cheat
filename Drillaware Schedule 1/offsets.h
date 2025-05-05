@@ -34,7 +34,7 @@ namespace offsets {
         extern uintptr_t AssignTarget; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$AssignTarget proc near
         // offset for DoesPlayerContainItemsOfInterest
         extern uintptr_t DoesPlayerContainItemsOfInterest; // ScheduleOne.NPCs.Behaviour.BodySearchBehaviour$$DoesPlayerContainItemsOfInterest proc near
-       // offset for BeginBodySearch
+        // offset for BeginBodySearch
         extern uintptr_t BeginBodySearch; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch proc near
         // offset for BeginBodySearch_LocalPlayer
         extern uintptr_t BeginBodySearch_LocalPlayer; // ScheduleOne.Police.PoliceOfficer$$BeginBodySearch_LocalPlayer proc near
@@ -44,8 +44,10 @@ namespace offsets {
         extern uintptr_t PunchControllerUpdate; //ScheduleOne_Combat_PunchController$$Update proc near
         //offset for SetfieldOfView
         extern uintptr_t SetfieldOfView;
-        
+
         extern uintptr_t PlayerMovementUpdate;
+
+        extern uintptr_t SkatingSkateboardUpdate;
     }
     namespace equippable {
         // QoL
@@ -81,4 +83,7 @@ namespace pointer {
     extern uintptr_t jumpForce;                 // ScheduleOne.PlayerScripts.PlayerMovement
     extern uintptr_t MoveSpeedMultiplier;       // ScheduleOne.PlayerScripts.PlayerMovement
     extern uintptr_t IsGrounded;
+    extern uintptr_t JumpForceSkating;
+    extern uintptr_t PushForceMultiplierSkating;
+    extern uintptr_t TopSpeed_KmhSkating;
 }

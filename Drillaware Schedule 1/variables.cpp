@@ -7,10 +7,14 @@ namespace variables
 	int iTrashGrabberCapacityAmount = 100;
 	bool bCustomFieldOfView = false;
 	float fFieldOfView = 80.0f;
+	bool bBetterGrowTimes = false;
+	float fGrowMultiplier = 1.0f;
+	bool bBetterOvenTimes = false;
+	float fOvenMultiplier = 1.0f;
+	bool bMaxStack = false;
 
 	// Player
 	bool bGodMode = false;
-	bool bMaxStack = false;
 	bool bUnlimitedSstamina = false;
 	bool bDisableBodySearches = false;
 	bool bDisableArrest = false;
@@ -25,6 +29,11 @@ namespace variables
 	float fMoveSpeedMultiplierValue = 1.0f;
 	float fJumpForceValue = 5.25f;
 
+	bool bSkatingMovementEnabled = false;
+	float fJumpForceSkatingValue = 35.0f;
+	float fTopSpeed_Kmh = 50.0f;
+	float fPushForceMultiplier = 1.0f;
+	bool bIsGroundedSkating = false;
 
 
 	//world 
@@ -34,8 +43,6 @@ namespace variables
 	bool bAlwaysHitJAckpot = false;
 	bool bCustomBetAmount = false;
 	int iBetAmount = 500;
-	bool bBetterGrowTimes = false;
-	float fGrowMultiplier = 1.0f;
 
 	//NPC
 	bool bAlwaysAcceptSample = false;
