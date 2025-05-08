@@ -52,6 +52,14 @@ namespace hooks {
         return 100; // better stack amount 
     }
 
+    tCursorsetlockState oCursorsetlockState = nullptr;
+    // Hook function
+    int __fastcall hkCursorsetlockState(void* __this) {
+        if (oCursorsetlockState)
+            oCursorsetlockState(__this);
+        return variables::debug_1; //
+    }
+
     //Disable body search 
     // Original function pointers
     tUpdateSearch oUpdateSearch = nullptr;

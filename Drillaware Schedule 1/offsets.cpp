@@ -24,6 +24,9 @@ namespace offsets {
         uintptr_t PlayerMovementUpdate = 0x6C78C0; // ScheduleOne.PlayerScripts.PlayerMovement$$Update
         uintptr_t SkatingSkateboardUpdate = 0xA64BE0; // ScheduleOne_Skating_Skateboard$$Update proc near
     }
+    namespace engine {
+        uintptr_t CursorsetlockState = 0x29A99F0; // UnityEngine_Cursor$$set_lockState proc near
+    }
     namespace equippable {
         uintptr_t TrashGrabberGetCapacity = 0x84F060; // ScheduleOne_Equipping_Equippable_TrashGrabber$$GetCapacity proc near
         uintptr_t UpdateTrashGrabber = 0x84F620; // ScheduleOne.Equipping.Equippable_TrashGrabber$$Update proc near

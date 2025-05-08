@@ -78,7 +78,7 @@ void RenderMenu()
 					{
 						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetAdditiveGrowthMultiplier));
 					}
-					if (ImGui::Checkbox("Oven Multiplier", &variables::bBetterOvenTimes))
+					if (ImGui::Checkbox(" Custom Oven Speed", &variables::bBetterOvenTimes))
 						if (&variables::bBetterOvenTimes)
 						{
 							MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration), &hooks::hkGetCookDuration, (LPVOID*)&hooks::oGetCookDuration);
@@ -93,6 +93,19 @@ void RenderMenu()
 							MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
 							MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
 						}
+					if (ImGui::Checkbox(" Debug", &variables::debug))
+						if (&variables::bBetterOvenTimes)
+						{
+							MH_CreateHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration), &hooks::hkGetCookDuration, (LPVOID*)&hooks::oGetCookDuration);
+							MH_EnableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+						}
+					if (variables::debug)
+						ImGui::SliderInt("Debugr", &variables::debug_1, 0, 4);
+					else
+					{
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::GetCookDuration));
+						MH_DisableHook((void*)(offsets::GameAssembly + offsets::world::OvenIsReady));
+					}
 
 				ImGui::EndTabItem();
 			}

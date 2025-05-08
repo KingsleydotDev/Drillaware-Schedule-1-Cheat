@@ -11,6 +11,9 @@ namespace variables
 	extern float fOvenMultiplier;
 	extern bool bMaxStack;
 
+	extern bool debug;
+	extern int debug_1;
+
 
 	// Player
 	extern bool bGodMode;

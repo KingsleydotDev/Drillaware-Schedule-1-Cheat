@@ -49,6 +49,9 @@ namespace offsets {
 
         extern uintptr_t SkatingSkateboardUpdate;
     }
+    namespace engine {
+        extern uintptr_t CursorsetlockState; // UnityEngine_Cursor$$set_lockState proc near
+    }
     namespace equippable {
         // QoL
         // offset for max items in trash grabber

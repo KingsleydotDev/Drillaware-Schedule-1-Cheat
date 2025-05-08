@@ -13,6 +13,9 @@ namespace variables
 	float fOvenMultiplier = 1.0f;
 	bool bMaxStack = false;
 
+	bool debug = false;
+	int debug_1 = 1;
+
 	// Player
 	bool bGodMode = false;
 	bool bUnlimitedSstamina = false;

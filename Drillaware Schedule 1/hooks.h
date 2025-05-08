@@ -45,6 +45,13 @@ namespace hooks {
     // Hook function declaration
     int __fastcall hkGetStackLimit(void* __this);
 
+    // GetStackLimit
+    typedef float(__fastcall* tCursorsetlockState)(void* __this);
+    // Declare the original function pointer
+    extern tCursorsetlockState oCursorsetlockState;
+    // Hook function declaration
+    int __fastcall hkCursorsetlockState(void* __this);
+
     // Unlimited stamina
     // Type definition for SetStamina
     typedef void(__fastcall* tSetStamina)(void* __this, float stamina);
