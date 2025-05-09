@@ -20,6 +20,7 @@ namespace hooks {
     extern tSetfieldOfView oSetfieldOfView;
     void __fastcall hkSetfieldOfView(void* CameraMain, float fov);
 
+
     // Player
     // 
     // CanTakeDamage

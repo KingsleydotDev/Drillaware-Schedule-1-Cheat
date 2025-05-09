@@ -39,6 +39,7 @@ namespace variables
 	bool bIsGroundedSkating = false;
 
 
+
 	//world 
 	bool bSkateboardJump = false;
 	bool bNoCurfew = false;

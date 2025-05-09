@@ -216,7 +216,7 @@ void RenderMenu()
 					if (variables::bSkatingMovementEnabled)
 					{
 						ImGui::SliderFloat("Push Force Multiplier ", &variables::fPushForceMultiplier, 1.0f, 20.0f);
-						ImGui::SliderFloat("Jump Force", &variables::fJumpForceSkatingValue, 30.0f, 150.0f);
+						ImGui::SliderFloat("Jump Force Skateboard", &variables::fJumpForceSkatingValue, 30.0f, 150.0f);
 						ImGui::SliderFloat("Top Speed", &variables::fTopSpeed_Kmh, 50.0f, 200.0f);
 					}
 					else
